@@ -1,0 +1,27 @@
+= simple_form_for @ocio , html: {multipart: true} do |f|
+  - if @ocio.errors.any?
+    #errors
+      %h2
+      = plurize(@ocio.errors.count , "error")
+      prevented this accion from saving
+      %ul
+        - @ocio.errors.full_messages.each  do |msg|
+          %li= msg
+
+  .form-group
+    = f.simple_fields_for :pics , @pic do |pic|
+      = pic.input :image , as: :file , input_html: {class: "form-control"}
+  .form-group
+    = f.input :cat , collection: ["Cine","Teatro","Concierto","Zoo","Museo","Estadio"] , input_html: {class: "form-control"} , label: "Billete De"
+  .form-group
+    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título"
+  .form-group
+    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción"
+  .form-group
+    = f.input :dir , input_html: {class: "form-control"} , label: "Dirección"
+  .form-group
+    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora"
+  .form-group
+    = f.input :price , input_html: {class: "form-control"} , label: "Precio"
+
+  = f.button :submit , class: "btn btn-primary"

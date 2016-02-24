@@ -1,0 +1,41 @@
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading.pin_image
+        = image_tag @alojamiento.pics.first.image.url
+      .panel-body
+        %h1= @alojamiento.title
+        %p.description
+          %h3
+            %strong= @alojamiento.cat
+          = @alojamiento.desc
+          El
+          %strong precio
+          es
+          %strong= @alojamiento.price
+          euros
+          y estará en
+          %strong= @alojamiento.dir
+          y la fecha de ida es
+          %strong= @alojamiento.fecha_ir
+          y la vuelta es en
+          %strong= @alojamiento.fecha_volver
+        %p
+          submited by
+          %strong= @alojamiento.user.email
+      .panel-footer
+        .row
+          .col-md-6
+            %p.user
+              submited by
+              %strong= @alojamiento.user.email
+          .col-md-6
+            .btn-group.pull-right
+              = link_to like_alojamiento_path(@alojamiento) , method: :put , class: "btn btn-default " do
+                %span.glyphicon.glyphicon-heart
+                  = @alojamiento.get_upvotes.size
+              -if user_signed_in? && current_user.id == @alojamiento.user_id
+                = link_to "Edit" , edit_alojamiento_path(@alojamiento) , class: 'btn btn-default'
+                = link_to "Delete" , alojamiento_path , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-default'
+= render partial: 'comments/comments' , locals: { commentable: @alojamiento }
+= render partial: 'comments/form' , locals: { commentable: @alojamiento }

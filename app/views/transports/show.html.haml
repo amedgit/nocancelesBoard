@@ -1,0 +1,40 @@
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading.pin_image
+        = image_tag @transport.pics.first.image.url
+      .panel-body
+        %h1= @transport.title
+        %p.description
+          %h3
+            %strong= @transport.cat
+          = @transport.desc
+          %strong= @transport.price
+          euros
+          desde
+          %strong= @transport.from_city
+          a
+          %strong= @transport.to_city
+          en fecha:
+          %strong= @transport.fecha
+        %p
+          submited by
+          %strong= @transport.user.email
+      .panel-footer
+        .row
+          .col-md-6
+            %p.user
+              submited by
+              %strong= @transport.user.email
+          .col-md-6
+            .btn-group.pull-right
+              = link_to like_transport_path(@transport) , method: :put , class: "btn btn-info" do
+                %span.glyphicon.glyphicon-heart
+                  = @transport.get_upvotes.size
+              -if user_signed_in? && current_user.id == @transport.user_id
+                = link_to  edit_transport_path(@transport) , class: 'btn btn-warning' do
+                  %span.glyphicon.glyphicon-pencil
+                = link_to  @transport , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
+                  %span.glyphicon.glyphicon-trash
+= render partial: 'comments/comments' , locals: { commentable: @transport }
+= render partial: 'comments/form' , locals: { commentable: @transport }

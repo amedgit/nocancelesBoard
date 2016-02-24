@@ -1,0 +1,39 @@
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading.pin_image
+        = image_tag @ocio.pics.first.image.url
+      .panel-body
+        %h1= @ocio.title
+        %p.description
+          %h3
+            %strong= @ocio.cat
+          = @ocio.desc
+          El
+          %strong precio
+          es
+          %strong= @ocio.price
+          euros
+          y estará en
+          %strong= @ocio.dir
+          en la fecha de
+          %strong= @ocio.fecha
+        %p
+          submited by
+          %strong= @ocio.user.email
+      .panel-footer
+        .row
+          .col-md-6
+            %p.user
+              submited by
+              %strong= @ocio.user.email
+          .col-md-6
+            .btn-group.pull-right
+              = link_to like_ocio_path(@ocio) , method: :put , class: "btn btn-default" do
+                %span.glyphicon.glyphicon-heart
+                  = @ocio.get_upvotes.size
+              -if user_signed_in? && current_user.id == @ocio.user_id
+                = link_to "Edit" , edit_ocio_path(@ocio) , class: 'btn btn-default'
+                = link_to "Delete" , ocio_path , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-default '
+= render partial: 'comments/comments' , locals: { commentable: @ocio }
+= render partial: 'comments/form' , locals: { commentable: @ocio }

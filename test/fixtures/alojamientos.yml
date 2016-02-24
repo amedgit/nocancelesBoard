@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat: MyString
+  title: MyString
+  dir: MyString
+  fecha_ir: 2016-02-22 23:02:25
+  fecha_volver: 2016-02-22 23:02:25
+  desc: MyText
+  user_id: 1
+  price: 1
+
+two:
+  cat: MyString
+  title: MyString
+  dir: MyString
+  fecha_ir: 2016-02-22 23:02:25
+  fecha_volver: 2016-02-22 23:02:25
+  desc: MyText
+  user_id: 1
+  price: 1

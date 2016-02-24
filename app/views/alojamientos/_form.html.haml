@@ -1,0 +1,29 @@
+= simple_form_for @alojamiento , html: {multipart: true} do |f|
+  - if @alojamiento.errors.any?
+    #errors
+      %h2
+      = pluralize(@alojamiento.errors.count , "error")
+      prevented this accion from saving
+      %ul
+        - @alojamiento.errors.full_messages.each  do |msg|
+          %li= msg
+
+  .form-group
+    = f.simple_fields_for :pics , @pic do |pi|
+      = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "selecciona una imagen de tu billete"
+  .form-group
+    = f.input :cat , collection: ["Hotel","Hostal","Apartahotel","Apartamento"] , input_html: {class: "form-control"} , label: "Tipo De Alojamiento" , hint: "Elige la categoria adecuada"
+  .form-group
+    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título"
+  .form-group
+    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Indíca si hay condiciones especiales"
+  .form-group
+    = f.input :dir , input_html: {class: "form-control"} , label: "Dirección" , placeholder: "Escribe la dirección correcta , incluyendo la ciudad"
+  .form-group
+    = f.input :fecha_ir , input_html: {class: "form-control"} , label: "Fecha y Hora De Ida"
+  .form-group
+    = f.input :fecha_volver , input_html: {class: "form-control"} , label: "Fecha y Hora de Vuelta"
+  .form-group
+    = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "El precio es de euro y debe ser inferior o igual al precio original"
+
+  = f.button :submit , class: "btn btn-primary"
