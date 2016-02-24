@@ -2,7 +2,7 @@
   - if @ocio.errors.any?
     #errors
       %h2
-      = plurize(@ocio.errors.count , "error")
+      = pluralize(@ocio.errors.count , "error")
       prevented this accion from saving
       %ul
         - @ocio.errors.full_messages.each  do |msg|
@@ -10,18 +10,18 @@
 
   .form-group
     = f.simple_fields_for :pics , @pic do |pic|
-      = pic.input :image , as: :file , input_html: {class: "form-control"}
+      = pic.input :image , as: :file , input_html: {class: "form-control"} , hint: "Selecciona la foto del billete" , label: "Imagen"
   .form-group
-    = f.input :cat , collection: ["Cine","Teatro","Concierto","Zoo","Museo","Estadio"] , input_html: {class: "form-control"} , label: "Billete De"
+    = f.input :cat , collection: ["Cine","Teatro","Concierto","Zoo","Museo","Estadio"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige el tipo de billete"
   .form-group
-    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título"
+    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título" , placeholder: "Escribeun titulo de tu ocio"
   .form-group
-    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción"
+    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu anuncio"
   .form-group
-    = f.input :dir , input_html: {class: "form-control"} , label: "Dirección"
+    = f.input :dir , input_html: {class: "form-control"} , label: "Dirección" , placeholder: "La dirección del evento"
   .form-group
-    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora"
+    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "La fecha y horadel evento"
   .form-group
-    = f.input :price , input_html: {class: "form-control"} , label: "Precio"
+    = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "indica el precio del billete q debe ser igual o inferior del precio original"
 
   = f.button :submit , class: "btn btn-primary"

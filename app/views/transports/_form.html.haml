@@ -2,7 +2,7 @@
   - if @transport.errors.any?
     #errors
       %h2
-      = plurize(@transport.errors.count , "error")
+      = pluralize(@transport.errors.count , "error")
       prevented this accion from saving
       %ul
         - @transport.errors.full_messages.each  do |msg|
@@ -10,20 +10,21 @@
 
   .form-group
     = f.simple_fields_for :pics , @pic do |pi|
-      = pi.input :image , as: :file , input_html: {class: "form-control"}
+      = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "Seleciona la imagen de tu billete"
   .form-group
-    = f.input :cat , collection: ["Avion" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De"
+    = f.input :cat , collection: ["Avion" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viage"
   .form-group
     = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título"
   .form-group
-    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción"
+    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu oferta "
   .form-group
-    = f.input :from_city , input_html: {class: "form-control"} , label: "Desde"
+    = f.input :from_city , input_html: {class: "form-control"} , label: "Desde" , placeholder: "Indica la ciudad desde la cual tienes el billete"
   .form-group
-    = f.input :to_city , input_html: {class: "form-control"} , label: "A"
+    = f.input :to_city , input_html: {class: "form-control"} , label: "A" , placeholder: "Indica la ciudad y direccion de la destinación"
   .form-group
-    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora"
+    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "Indica la fecha y la hora de partenza"
   .form-group
-    = f.input :price , input_html: {class: "form-control"} , label: "Precio"
+    = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "Escribe el precio que debe ser igual o inferior al precio real del billete"
+
 
   = f.button :submit , class: "btn btn-primary"
