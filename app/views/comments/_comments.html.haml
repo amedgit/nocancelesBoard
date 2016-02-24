@@ -1,14 +1,14 @@
-.col-md-8.col-md-offset-2
-  %h3
-    %strong
-      = commentable.comments.count
-      comment(s)
-  - commentable.comments.each do |comment|
-    .row
+.row
+  .col-md-8.col-md-offset-2
+    %h3
+      %strong
+        = commentable.comments.count
+        comment(s)
+    - commentable.comments.each do |comment|
       .panel.panel-default
         .panel-heading
           = comment.user.email
-        .panel-body
+        .panel-body.pan
           = comment.body
           .btn-group.pull-right
             - if comment.commentable_type == "Ocio"
