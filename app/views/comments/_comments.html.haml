@@ -4,16 +4,18 @@
       = commentable.comments.count
       comment(s)
   - commentable.comments.each do |comment|
-    = comment.user.email
-    said:
-    .well
-      = comment.body
-      .btn-group.pull-right
-        - if comment.commentable_type == "Ocio"
-          = render partial: 'comments/like_ocio' , locals: {commentable: commentable , comment: comment}
-        - elsif comment.commentable_type == "Alojamiento"
-          = render partial: 'comments/like_alojamiento' , locals: {commentable: commentable , comment: comment}
-        - elsif comment.commentable_type == "Transport"
-          = render partial: 'comments/like_transport' , locals: {commentable: commentable , comment: comment}
-        - if user_signed_in? && current_user.id == comment.user_id
-          = link_to "Delete" , [commentable , comment] , method: :delete , data: {confirm: "Are you sure?"} , class:"btn btn-primary "
+    .row
+      .panel.panel-default
+        .panel-heading
+          = comment.user.email
+        .panel-body
+          = comment.body
+          .btn-group.pull-right
+            - if comment.commentable_type == "Ocio"
+              = render partial: 'comments/like_ocio' , locals: {commentable: commentable , comment: comment}
+            - elsif comment.commentable_type == "Alojamiento"
+              = render partial: 'comments/like_alojamiento' , locals: {commentable: commentable , comment: comment}
+            - elsif comment.commentable_type == "Transport"
+              = render partial: 'comments/like_transport' , locals: {commentable: commentable , comment: comment}
+            - if user_signed_in? && current_user.id == comment.user_id
+              = link_to "Delete" , [commentable , comment] , method: :delete , data: {confirm: "Are you sure?"} , class:"btn btn-primary "
