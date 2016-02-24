@@ -1,4 +1,4 @@
-.row
+.row#pin_show
   .col-md-8.col-md-offset-2
     .panel.panel-default
       .panel-heading.pin_image
@@ -29,11 +29,13 @@
               %strong= @ocio.user.email
           .col-md-6
             .btn-group.pull-right
-              = link_to like_ocio_path(@ocio) , method: :put , class: "btn btn-default" do
+              = link_to like_ocio_path(@ocio) , method: :put , class: "btn btn-info" do
                 %span.glyphicon.glyphicon-heart
                   = @ocio.get_upvotes.size
               -if user_signed_in? && current_user.id == @ocio.user_id
-                = link_to "Edit" , edit_ocio_path(@ocio) , class: 'btn btn-default'
-                = link_to "Delete" , ocio_path , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-default '
+                = link_to  edit_ocio_path(@ocio) , class: 'btn btn-warning' do
+                  %span.glyphicon.glyphicon-pencil
+                = link_to  @ocio , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
+                  %span.glyphicon.glyphicon-trash
 = render partial: 'comments/comments' , locals: { commentable: @ocio }
 = render partial: 'comments/form' , locals: { commentable: @ocio }
