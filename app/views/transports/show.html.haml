@@ -28,7 +28,7 @@
               %strong= @transport.user.email
           .col-md-6
             .btn-group.pull-right
-              = link_to like_transport_path(@transport) , method: :put , class: "btn btn-info" do
+              = link_to like_transport_path(@transport) , method: :put , remote: true , class: "btn btn-info like" do
                 %span.glyphicon.glyphicon-heart
                   = @transport.get_upvotes.size
               -if user_signed_in? && current_user.id == @transport.user_id

@@ -29,7 +29,7 @@
               %strong= @ocio.user.email
           .col-md-6
             .btn-group.pull-right
-              = link_to like_ocio_path(@ocio) , method: :put , class: "btn btn-info" do
+              = link_to like_ocio_path(@ocio) , method: :put , remote: true , class: "btn btn-info like" do
                 %span.glyphicon.glyphicon-heart
                   = @ocio.get_upvotes.size
               -if user_signed_in? && current_user.id == @ocio.user_id

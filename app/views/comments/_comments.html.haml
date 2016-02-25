@@ -18,4 +18,5 @@
             - elsif comment.commentable_type == "Transport"
               = render partial: 'comments/like_transport' , locals: {commentable: commentable , comment: comment}
             - if user_signed_in? && current_user.id == comment.user_id
-              = link_to "Delete" , [commentable , comment] , method: :delete , data: {confirm: "Are you sure?"} , class:"btn btn-primary "
+              = link_to  [commentable , comment] , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
+                %span.glyphicon.glyphicon-trash

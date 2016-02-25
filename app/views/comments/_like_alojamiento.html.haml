@@ -1,6 +1,6 @@
-= link_to like_alojamiento_comment_path(commentable , comment) , method: :put , class: "btn btn-success" do
+= link_to like_alojamiento_comment_path(commentable , comment) , method: :put   ,  class: "btn btn-success" do
   %span.glyphicon.glyphicon-thumbs-up
     = comment.get_upvotes.size
-= link_to dislike_alojamiento_comment_path(commentable , comment) , method: :put , class: "btn btn-danger " do
+= link_to dislike_alojamiento_comment_path(commentable , comment) , method: :put  , class: "btn btn-warning" do
   %span.glyphicon.glyphicon-thumbs-down
     = comment.get_downvotes.size

@@ -19,13 +19,19 @@ class CommentsController < ApplicationController
   def upvote
     @comment = @commentable.comments.find(params[:id])
     @comment.upvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
   end
 
   def downvote
     @comment = @commentable.comments.find(params[:id])
     @comment.downvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
   end
 
   private
