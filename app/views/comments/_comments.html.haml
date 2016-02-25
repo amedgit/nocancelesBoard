@@ -11,12 +11,4 @@
         .panel-body.pan
           = comment.body
           .btn-group.pull-right
-            - if comment.commentable_type == "Ocio"
-              = render partial: 'comments/like_ocio' , locals: {commentable: commentable , comment: comment}
-            - elsif comment.commentable_type == "Alojamiento"
-              = render partial: 'comments/like_alojamiento' , locals: {commentable: commentable , comment: comment}
-            - elsif comment.commentable_type == "Transport"
-              = render partial: 'comments/like_transport' , locals: {commentable: commentable , comment: comment}
-            - if user_signed_in? && current_user.id == comment.user_id
-              = link_to  [commentable , comment] , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
-                %span.glyphicon.glyphicon-trash
+            = render partial: 'comments/comment_likes' , locals: {comment: comment , commentable: commentable}

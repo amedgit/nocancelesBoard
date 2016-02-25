@@ -1,25 +1,34 @@
 .row
   .col-md-4
-    %h1= link_to "Transportes" , transports_path
-    - if @transports.any?
-      - @transports.each do |transport|
-        =link_to (image_tag transport.pics.first.image.url(:medium)) , transport
-        %h4= link_to transport.title , transport
-    - else
-      %h4 Aún no hay nada de transportes!
+    .panel.panel-default
+      .panel-heading
+        %h1= link_to "Transportes" , transports_path , class: "btn btn-primary btn-block btn-lg "
+      - if @transports.any?
+        - @transports.each do |transport|
+          .panel-body
+            =link_to (image_tag transport.pics.first.image.url(:medium)) , transport
+            %h2= link_to transport.title , transport
+      - else
+        %h4 Aún no hay nada de transportes!
   .col-md-4
-    %h1= link_to "Ocios" , ocios_path
-    - if @ocios.any?
-      - @ocios.each do |ocio|
-        = link_to (image_tag ocio.pics.first.image.url(:medium)) , ocio
-        %h4= link_to ocio.title , ocio
-    - else
-      %h4 Aún no hay nada de ocios!
+    .panel.panel-default
+      .panel-heading
+        %h1= link_to "Ocios" , ocios_path , class: "btn btn-primary btn-block btn-lg"
+      - if @ocios.any?
+        - @ocios.each do |ocio|
+          .panel-body
+            = link_to (image_tag ocio.pics.first.image.url(:medium)) , ocio
+            %h2= link_to ocio.title , ocio
+      - else
+        %h4 Aún no hay nada de ocios!
   .col-md-4
-    %h1= link_to "Alojamientos" , alojamientos_path
-    - if @alojamientos.any?
-      - @alojamientos.each do |alojamiento|
-        = link_to (image_tag alojamiento.pics.first.image.url(:medium)) , alojamiento
-        %h4= link_to alojamiento.title , alojamiento
-    - else
-      %h4 Aún no hay nada de alojamientos!
+    .panel.panel-default
+      .panel-heading
+        %h1= link_to "Alojamientos" , alojamientos_path , class: "btn btn-primary btn-block btn-lg"
+      - if @alojamientos.any?
+        - @alojamientos.each do |alojamiento|
+          .panel-body
+            = link_to (image_tag alojamiento.pics.first.image.url(:medium)) , alojamiento
+            %h2= link_to alojamiento.title , alojamiento
+      - else
+        %h4 Aún no hay nada de alojamientos!

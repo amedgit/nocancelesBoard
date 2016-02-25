@@ -19,10 +19,8 @@ class CommentsController < ApplicationController
   def upvote
     @comment = @commentable.comments.find(params[:id])
     @comment.upvote_by current_user
-    respond_to do |format|
-      format.html {redirect_to :back}
-      format.js
-    end
+    redirect_to :back
+
   end
 
   def downvote
@@ -30,7 +28,7 @@ class CommentsController < ApplicationController
     @comment.downvote_by current_user
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js
+
     end
   end
 
@@ -45,7 +43,7 @@ class CommentsController < ApplicationController
         @commentable = Ocio.find(params[:ocio_id])
     elsif params[:alojamiento_id]
         @commentable = Alojamiento.find(params[:alojamiento_id])
-    else params[:transport_id]
+    elsif params[:transport_id]
         @commentable = Transport.find(params[:transport_id])
     end
   end

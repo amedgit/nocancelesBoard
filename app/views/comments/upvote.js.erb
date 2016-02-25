@@ -1,1 +1,1 @@
-$('#like').html("<%= j (render partial: 'form' , locals: {commentable: @alojamiento , comment: @comment}) %>");
+$('.like-comment').html("<%= j (@comment.get_upvotes.size.to_s) %>");

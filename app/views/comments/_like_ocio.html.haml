@@ -1,6 +1,0 @@
-= link_to like_ocio_comment_path(commentable , comment) , method: :put , class: "btn btn-success" do
-  %span.glyphicon.glyphicon-thumbs-up
-    = comment.get_upvotes.size
-= link_to dislike_ocio_comment_path(commentable , comment) , method: :put , class: "btn btn-warning " do
-  %span.glyphicon.glyphicon-thumbs-down
-    = comment.get_downvotes.size
