@@ -1,1 +1,1 @@
-$('.dislike-comment').html("<%= j (@comment.get_downvotes.size.to_s) %>");
+$('.dislike-comment').html("<%= j ( render partial: 'comments/ajax' , locals: {commentable: @commentable , comment: @comment}) %>");

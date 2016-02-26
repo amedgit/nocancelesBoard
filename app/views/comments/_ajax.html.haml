@@ -1,10 +1,8 @@
 - if comment.commentable_type == "Ocio"
-  = link_to like_ocio_comment_path(commentable , comment) , method: :put   ,class: "btn btn-success like-comment" do
-    %span.glyphicon.glyphicon-thumbs-up
-      = comment.get_upvotes.size
-  = link_to dislike_ocio_comment_path(commentable , comment) , method: :put   ,class: "btn btn-warning dislike-comment" do
-    %span.glyphicon.glyphicon-thumbs-down
-      = comment.get_downvotes.size
+  %span.glyphicon.glyphicon-thumbs-up
+    = upvote
+  %span.glyphicon.glyphicon-thumbs-down
+    = comment.get_downvotes.size
 - elsif comment.commentable_type == "Alojamiento"
   = link_to like_alojamiento_comment_path(commentable , comment) , method: :put    , class: "btn btn-success like-comment " do
     %span.glyphicon.glyphicon-thumbs-up
