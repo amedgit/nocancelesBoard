@@ -21,13 +21,12 @@
         - if user_signed_in?
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "#"}
-                Link
-                %span.sr-only (current)
+              = link_to "Link" , "#"
+              %span.sr-only (current)
             %li= link_to "Link" , "#"
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
-                Nuevo Anuncio
+                Crear Anuncio
                 %span.caret
               %ul.dropdown-menu#demolist
                 %li= link_to "New Transport" , new_transport_path
@@ -37,11 +36,10 @@
                 %li= link_to "separated link" , "#"
                 %li.divider{:role => "separator"}
                 %li= link_to "another one" , "#"
-
           %form.navbar-form.navbar-left{:role => "search"}
             .form-group
               %input.form-control{:placeholder => "Search", :type => "text"}
-            %button.btn.btn-default{:type => "submit"} Submit
+            %button.btn.btn-primary{:type => "submit"} Submit
           %ul.nav.navbar-nav.navbar-right
             %li= link_to "Link" , "#"
             %li.dropdown
@@ -50,9 +48,19 @@
                 = current_user.email
                 %span.caret
               %ul.dropdown-menu
-                %li= link_to  "Edit Acount" , edit_user_registration_path
-                %li= link_to "Edit profile" , "#"
-                %li= link_to "See Profile" , "#"
+                %li
+                  = link_to  "#" do
+                    %span.glyphicon.glyphicon-user
+                    Perfil
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to  edit_user_registration_path do
+                    %span.glyphicon.glyphicon-pencil
+                    Contraseña
+                %li
+                  = link_to  "#" do
+                    %span.glyphicon.glyphicon-pencil
+                    Perfil
                 %li.divider{:role => "separator"}
                 %li
                   = link_to  destroy_user_session_path , method: :delete do

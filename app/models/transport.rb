@@ -4,4 +4,6 @@ class Transport < ActiveRecord::Base
   has_many :pics , as: :imageable , dependent: :destroy
   has_many :comments , as: :commentable , dependent: :destroy
   accepts_nested_attributes_for :pics , allow_destroy: true
+
+  validates_associated :pics , presence: true
 end
