@@ -13,19 +13,19 @@
     = f.simple_fields_for :pic , @pic do |pi|
       = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "Seleciona la imagen de tu billete" , required: true
   .form-group
-    = f.input :cat , collection: ["Avión" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viage"
+    = f.input :cat , collection: ["Avión" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viage" , required: true
   .form-group
     = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título" , required: true
   .form-group
-    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu oferta "
+    = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu oferta " , required: true
   .form-group
-    = f.input :from_city , input_html: {class: "form-control"} , label: "Desde" , placeholder: "Indica la ciudad desde la cual tienes el billete"
+    = f.input :from_city , input_html: {class: "form-control"} , label: "Desde" , placeholder: "Indica la ciudad desde la cual tienes el billete", required: true
   .form-group
-    = f.input :to_city , input_html: {class: "form-control"} , label: "A" , placeholder: "Indica la ciudad y direccion de la destinación"
+    = f.input :to_city , input_html: {class: "form-control"} , label: "A" , placeholder: "Indica la ciudad y direccion de la destinación", required: true
   .form-group
-    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "Indica la fecha y la hora de partenza"
+    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "Indica la fecha y la hora de partenza", required: true
   .form-group
-    = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "Escribe el precio que debe ser igual o inferior al precio real del billete"
+    = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "Escribe el precio que debe ser igual o inferior al precio real del billete", required: true
 
 
   = f.button :submit , class: "btn btn-primary"

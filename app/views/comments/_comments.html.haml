@@ -2,8 +2,9 @@
   .col-md-8.col-md-offset-2
     %h3
       %strong
-        = commentable.comments.count
-        comment(s)
+
+        = pluralize( commentable.comments.count , "commento")
+
     - commentable.comments.each do |comment|
       .panel.panel-default
         .panel-heading

@@ -17,7 +17,7 @@
       - if @ocios.any?
         - @ocios.each do |ocio|
           .panel-body
-            = link_to (image_tag ocio.pics.first.image.url(:medium)) , ocio
+            = link_to (image_tag ocio.pic.image.url(:medium)) , ocio
             %h2= link_to ocio.title , ocio
       - else
         %h4 Aún no hay nada de ocios!
@@ -28,7 +28,7 @@
       - if @alojamientos.any?
         - @alojamientos.each do |alojamiento|
           .panel-body
-            = link_to (image_tag alojamiento.pics.first.image.url(:medium)) , alojamiento
+            = link_to (image_tag alojamiento.pic.image.url(:medium)) , alojamiento
             %h2= link_to alojamiento.title , alojamiento
       - else
         %h4 Aún no hay nada de alojamientos!
