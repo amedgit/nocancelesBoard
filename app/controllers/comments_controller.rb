@@ -48,6 +48,8 @@ class CommentsController < ApplicationController
         @commentable = Alojamiento.find(params[:alojamiento_id])
     elsif params[:transport_id]
         @commentable = Transport.find(params[:transport_id])
+    elsif params[:perfil_id]
+        @commentable = Perfil.find(params[:perfil_id])
     end
   end
 

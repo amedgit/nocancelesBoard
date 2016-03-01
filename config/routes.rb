@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :users , only: [:index]
+
+  resources :perfils do
+    member do
+      put "like" , to: "perfils#upvote"
+    end
+    resources :comments do
+      member do
+        put "like" , to: "comments#upvote"
+        put "dislike" , to: "comments#downvote"
+      end
+    end
+  end
+
   resources :places
 
   resources :transports do

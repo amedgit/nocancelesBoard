@@ -11,7 +11,7 @@ class OciosController < ApplicationController
 
   def new
     @ocio = current_user.ocios.build
-    @pic = @ocio.pics.build
+    @pic = @ocio.build_pic
   end
 
   def create
@@ -54,7 +54,7 @@ class OciosController < ApplicationController
   end
 
   def ocio_params
-    params.require(:ocio).permit(:cat , :title , :dir , :desc , :price , :fecha ,  pics_attributes: [:id , :image , :_destroy])
+    params.require(:ocio).permit(:cat , :title , :dir , :desc , :price , :fecha ,  pic_attributes: [:id , :image , :_destroy])
   end
 
 end

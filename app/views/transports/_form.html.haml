@@ -8,13 +8,14 @@
         - @transport.errors.full_messages.each  do |msg|
           %li= msg
 
+
   .form-group
-    = f.simple_fields_for :pics , @pic do |pi|
-      = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "Seleciona la imagen de tu billete"
+    = f.simple_fields_for :pic , @pic do |pi|
+      = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "Seleciona la imagen de tu billete" , required: true
   .form-group
     = f.input :cat , collection: ["Avión" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viage"
   .form-group
-    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título"
+    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título" , required: true
   .form-group
     = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu oferta "
   .form-group

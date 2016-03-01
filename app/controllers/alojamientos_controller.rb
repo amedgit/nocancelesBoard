@@ -11,7 +11,7 @@ class AlojamientosController < ApplicationController
 
   def new
     @alojamiento = current_user.alojamientos.build
-    @pic = @alojamiento.pics.build
+    @pic = @alojamiento.build_pic
   end
 
   def create
@@ -54,6 +54,6 @@ class AlojamientosController < ApplicationController
   end
 
   def alojamiento_params
-    params.require(:alojamiento).permit(:cat , :title , :dir , :desc , :price , :fecha_ir , :fecha_volver ,  pics_attributes: [:id , :image , :_destroy])
+    params.require(:alojamiento).permit(:cat , :title , :dir , :desc , :price , :fecha_ir , :fecha_volver ,  pic_attributes: [:id , :image , :_destroy])
   end
 end

@@ -4,5 +4,5 @@
       .panel-heading
         %h1 Edit Transport Form
       .panel-body
-        = image_tag @transport.pics.first.image.url(:medium)
+        = image_tag @transport.pic.image.url(:medium)
         = render 'form'

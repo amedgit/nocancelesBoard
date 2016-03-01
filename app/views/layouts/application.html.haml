@@ -2,8 +2,9 @@
 %html
 %head
   %title Board
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false
-  = javascript_include_tag 'application', 'data-turbolinks-track' => false
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  %script{:src => "http://maps.googleapis.com/maps/api/js?sensor=false", :type => "text/javascript"}
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 %body
   %nav.navbar.navbar-inverse
@@ -41,26 +42,31 @@
               %input.form-control{:placeholder => "Search", :type => "text"}
             %button.btn.btn-primary{:type => "submit"} Submit
           %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Link" , "#"
+            %li= link_to "Usuarios" , users_path
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                 %span.glyphicon.glyphicon-user
                 = current_user.email
                 %span.caret
               %ul.dropdown-menu
-                %li
-                  = link_to  "#" do
-                    %span.glyphicon.glyphicon-user
-                    Perfil
+                - if current_user.perfil.blank?
+                  %li
+                    = link_to  new_perfil_path do
+                      %span.glyphicon.glyphicon-user
+                      Crear Perfil
+                - else
+                  %li
+                    = link_to  current_user.perfil do
+                      %span.glyphicon.glyphicon-user
+                      Ver Perfil
+
+
                 %li.divider{:role => "separator"}
                 %li
                   = link_to  edit_user_registration_path do
                     %span.glyphicon.glyphicon-pencil
-                    Contraseña
-                %li
-                  = link_to  "#" do
-                    %span.glyphicon.glyphicon-pencil
-                    Perfil
+                    Editar Cuenta
+
                 %li.divider{:role => "separator"}
                 %li
                   = link_to  destroy_user_session_path , method: :delete do
@@ -79,3 +85,18 @@
 
 %script
   $('.dropdown-toggle').dropdown()
+
+
+:javascript
+  jQuery(function() {
+    var completer;
+
+    completer = new GmapsCompleter({
+      inputField: '#gmaps-input-address',
+      errorField: '#gmaps-error'
+    });
+
+    completer.autoCompleteInit({
+      country: "es"
+    });
+  });

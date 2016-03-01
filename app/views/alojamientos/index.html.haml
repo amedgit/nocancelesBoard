@@ -2,7 +2,7 @@
   - if @alojamientos.any?
     - @alojamientos.each do |alojamiento|
       .box.panel-default
-        = link_to (image_tag alojamiento.pics.first.image.url) , alojamiento
+        = link_to (image_tag alojamiento.pic.image.url) , alojamiento
         .panel-body
           %h2= link_to alojamiento.title , alojamiento
   - else

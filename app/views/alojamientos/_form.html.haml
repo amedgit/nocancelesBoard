@@ -9,7 +9,7 @@
           %li= msg
 
   .form-group
-    = f.simple_fields_for :pics , @pic do |pi|
+    = f.simple_fields_for :pic , @pic do |pi|
       = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "selecciona una imagen de tu billete"
   .form-group
     = f.input :cat , collection: ["Hotel","Hostal","Apartahotel","Apartamento"] , input_html: {class: "form-control"} , label: "Tipo De Alojamiento" , hint: "Elige la categoria adecuada"

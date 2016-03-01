@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223165823) do
+ActiveRecord::Schema.define(version: 20160228151811) do
 
   create_table "alojamientos", force: :cascade do |t|
     t.string   "cat"
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(version: 20160223165823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "fecha"
+  end
+
+  create_table "perfils", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birth_date"
+    t.integer  "age"
+    t.string   "gender"
+    t.integer  "user_id"
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "website_link"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "pics", force: :cascade do |t|

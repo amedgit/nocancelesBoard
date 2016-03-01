@@ -11,7 +11,7 @@ class TransportsController < ApplicationController
 
   def new
     @transport = current_user.transports.build
-    @pic = @transport.pics.build
+    @pic = @transport.build_pic
   end
 
   def create
@@ -54,6 +54,6 @@ class TransportsController < ApplicationController
   end
 
   def transport_params
-    params.require(:transport).permit(:cat , :title , :desc , :from_city , :to_city , :price , :fecha , pics_attributes: [:id , :image , :_destroy])
+    params.require(:transport).permit(:cat , :title , :desc , :from_city , :to_city , :price , :fecha , pic_attributes: [:image , :_destroy])
   end
 end

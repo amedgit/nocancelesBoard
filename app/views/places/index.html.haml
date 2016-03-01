@@ -6,7 +6,7 @@
       - if @transports.any?
         - @transports.each do |transport|
           .panel-body
-            =link_to (image_tag transport.pics.first.image.url(:medium)) , transport
+            =link_to (image_tag transport.pic.image.url(:medium)) , transport
             %h2= link_to transport.title , transport
       - else
         %h4 Aún no hay nada de transportes!

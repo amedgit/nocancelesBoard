@@ -2,7 +2,8 @@
   .row
     .panel.panel-default
       .panel-heading
-        %h1 Edit Alojamiento Form
+        %h1 Editar el Perfil
+
       .panel-body
-        = image_tag @alojamiento.pic.image.url(:medium)
+        = image_tag @perfil.pic.image.url(:medium)
         = render 'form'
