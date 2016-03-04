@@ -10,6 +10,7 @@
             = f.input :email, required: true, autofocus: true
             = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
             = f.input :password_confirmation, required: true
+            = f.input :terms_and_conditions  , label: "Aceptas las condiciones de uso Aceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de uso"  , as: :boolean
           .form-actions
-            = f.button :submit, "Sign up" , class: "btn btn-primary"
+            = f.button :submit, "Registrar" , class: "btn btn-primary"
         = render "devise/shared/links"

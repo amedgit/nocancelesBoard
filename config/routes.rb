@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     member do
       put "like" , to: "perfils#upvote"
     end
-    resources :comments do
+    resources :comments , only: [:create , :destroy , :upvote , :downvote] do
       member do
-        put "like" , to: "comments#upvote"
+        put "like"    , to: "comments#upvote"
         put "dislike" , to: "comments#downvote"
       end
     end
@@ -21,9 +21,9 @@ Rails.application.routes.draw do
     member do
       put "like" , to: "transports#upvote"
     end
-    resources :comments do
+    resources :comments , only: [:create , :destroy , :upvote , :downvote] do
       member do
-        put "like" , to: "comments#upvote"
+        put "like"    , to: "comments#upvote"
         put "dislike" , to: "comments#downvote"
       end
     end
@@ -33,21 +33,21 @@ Rails.application.routes.draw do
     member do
       put "like" , to: "ocios#upvote"
     end
-    resources :comments do
+    resources :comments , only: [:create , :destroy , :upvote , :downvote]  do
       member do
-        put "like" , to: "comments#upvote"
+        put "like"    , to: "comments#upvote"
         put "dislike" , to: "comments#downvote"
       end
     end
   end
 
-  resources :alojamientos do
+  resources :alojamientos  do
     member do
       put "like" , to: "alojamientos#upvote"
     end
-    resources :comments do
+    resources :comments  , only: [:create , :destroy , :upvote , :downvote] do
       member do
-        put "like" , to: "comments#upvote"
+        put "like"    , to: "comments#upvote"
         put "dislike" , to: "comments#downvote"
       end
     end

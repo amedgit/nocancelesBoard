@@ -1,5 +1,6 @@
 class AlojamientosController < ApplicationController
-  before_action :set_alojamiento , only: [:show , :edit , :update , :destroy , :upvote]
+  before_action :set_alojamiento , only: [:show ]
+  before_action :set_alojamiento_change , only: [ :edit , :update , :destroy , :upvote]
   before_action :authenticate_user! , except: [:index , :show]
 
   def index
@@ -51,6 +52,10 @@ class AlojamientosController < ApplicationController
 
   def set_alojamiento
     @alojamiento = Alojamiento.find(params[:id])
+  end
+
+  def set_alojamiento_change
+    @alojamiento = current_user.alojamientos.find(params[:id])
   end
 
   def alojamiento_params
