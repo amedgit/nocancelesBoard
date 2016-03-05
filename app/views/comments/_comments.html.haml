@@ -11,5 +11,5 @@
           = comment.user.email
         .panel-body.pan
           = comment.body
-          .btn-group.pull-right
+          %div{class: "btn-group pull-right comment_#{comment.id}"}
             = render partial: 'comments/comment_likes' , locals: {comment: comment , commentable: commentable}

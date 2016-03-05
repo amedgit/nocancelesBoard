@@ -19,10 +19,9 @@ class CommentsController < ApplicationController
   def upvote
     @comment = @commentable.comments.find(params[:id])
     @comment.upvote_by current_user
-    @upvote = @comment.get_upvotes.size
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js
+      format.js { render "comments/vote.js.erb" }
     end
   end
 
@@ -31,7 +30,7 @@ class CommentsController < ApplicationController
     @comment.downvote_by current_user
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js
+      format.js { render "comments/vote.js.erb" }
     end
   end
 
