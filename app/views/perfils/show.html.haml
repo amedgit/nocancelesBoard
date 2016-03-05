@@ -51,15 +51,9 @@
             %p.user
 
           .col-md-6
-            .btn-group.pull-right
-              = link_to like_perfil_path(@perfil) , method: :put , class: "btn btn-info like" do
-                %span.glyphicon.glyphicon-heart
-                  = @perfil.get_upvotes.size
-              -if user_signed_in? && current_user.id == @perfil.user_id
-                = link_to  edit_perfil_path(current_user.perfil) , class: 'btn btn-warning' do
-                  %span.glyphicon.glyphicon-pencil
-                = link_to  @perfil , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
-                  %span.glyphicon.glyphicon-trash
+            %div{class: "btn-group pull-right perfil_#{@perfil.id}"}
+              = render 'perfils/like', perfil: @perfil
+
 
 = render partial: 'comments/comments' , locals: { commentable: @perfil }
 = render partial: 'comments/form'     , locals: { commentable: @perfil }

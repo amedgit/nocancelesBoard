@@ -1,0 +1,8 @@
+= link_to like_alojamiento_path(@alojamiento) , method: :put , remote: true , class: "btn btn-info like " do
+  %span.glyphicon.glyphicon-heart
+    = @alojamiento.get_upvotes.size
+-if user_signed_in? && current_user.id == @alojamiento.user_id
+  = link_to  edit_alojamiento_path(@alojamiento) , class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-pencil
+  = link_to  @alojamiento , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
+    %span.glyphicon.glyphicon-trash

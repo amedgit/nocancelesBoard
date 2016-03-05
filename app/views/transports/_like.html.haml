@@ -1,0 +1,8 @@
+= link_to like_transport_path(@transport) , method: :put , remote: true , class: "btn btn-info like" do
+  %span.glyphicon.glyphicon-heart
+    = @transport.get_upvotes.size
+-if user_signed_in? && current_user.id == @transport.user_id
+  = link_to  edit_transport_path(@transport) , class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-pencil
+  = link_to  @transport , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
+    %span.glyphicon.glyphicon-trash

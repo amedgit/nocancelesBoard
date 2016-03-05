@@ -1,0 +1,8 @@
+= link_to like_ocio_path(@ocio) , method: :put , remote: true , class: "btn btn-info like" do
+  %span.glyphicon.glyphicon-heart
+    = @ocio.get_upvotes.size
+-if user_signed_in? && current_user.id == @ocio.user_id
+  = link_to  edit_ocio_path(@ocio) , class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-pencil
+  = link_to  @ocio , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
+    %span.glyphicon.glyphicon-trash

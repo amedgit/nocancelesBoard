@@ -48,7 +48,7 @@ class PerfilsController < ApplicationController
     @perfil.upvote_by current_user
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js
+      format.js {render 'perfils/vote.js.erb'}
     end
   end
 

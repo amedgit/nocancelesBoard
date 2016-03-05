@@ -44,7 +44,7 @@ class AlojamientosController < ApplicationController
     @alojamiento.upvote_by current_user
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js
+      format.js {render 'alojamientos/vote.js.erb'}
     end
   end
 
@@ -56,7 +56,7 @@ class AlojamientosController < ApplicationController
 
   def alojamiento_auth
     if @alojamiento.user != current_user
-      redirect_to root_path , notice: "no eres autorizado para este accion"
+      redirect_to root_path , notice: "no eres autorizado "
     end
   end
 
