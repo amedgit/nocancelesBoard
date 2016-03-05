@@ -1,6 +1,6 @@
 class AlojamientosController < ApplicationController
-  before_action :set_alojamiento , only: [:show ]
-  before_action :set_alojamiento_change , only: [ :edit , :update , :destroy , :upvote]
+  before_action :set_alojamiento , only: [:show,:edit , :update , :destroy , :upvote ]
+  before_action :alojamiento_auth , only: [ :edit , :update , :destroy ]
   before_action :authenticate_user! , except: [:index , :show]
 
   def index
@@ -54,8 +54,10 @@ class AlojamientosController < ApplicationController
     @alojamiento = Alojamiento.find(params[:id])
   end
 
-  def set_alojamiento_change
-    @alojamiento = current_user.alojamientos.find(params[:id])
+  def alojamiento_auth
+    if @alojamiento.user != current_user
+      redirect_to root_path , notice: "no eres autorizado para este accion"
+    end
   end
 
   def alojamiento_params

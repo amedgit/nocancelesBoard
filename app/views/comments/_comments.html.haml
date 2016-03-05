@@ -3,7 +3,7 @@
     %h3
       %strong
 
-        = pluralize( commentable.comments.count , "commento")
+        = pluralize( commentable.comments.count , "commentario")
 
     - commentable.comments.each do |comment|
       .panel.panel-default

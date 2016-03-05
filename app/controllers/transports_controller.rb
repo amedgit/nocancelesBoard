@@ -1,6 +1,7 @@
 class TransportsController < ApplicationController
   before_action :set_transport , only: [:show , :edit , :update , :destroy , :upvote]
   before_action :authenticate_user! , except: [:index , :show]
+  before_action :transport_auth , only: [:edit , :update , :destroy]
 
   def index
     @transports = Transport.all.order("created_at DESC")
@@ -55,5 +56,11 @@ class TransportsController < ApplicationController
 
   def transport_params
     params.require(:transport).permit(:cat , :title , :desc , :from_city , :to_city , :price , :fecha , pic_attributes: [:image , :_destroy])
+  end
+
+  def transport_auth
+    if @transport.user != current_user
+      redirect_to root_path , notice: "no eres autorizado"
+    end
   end
 end

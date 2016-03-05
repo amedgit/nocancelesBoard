@@ -1,6 +1,7 @@
 class PerfilsController < ApplicationController
   before_action :set_perfil , only: [:edit , :update , :show , :destroy ,  :upvote]
   before_action :authenticate_user!,  except: [:index , :show ]
+  before_action :perfil_auth , only: [:edit , :update , :destroy]
 
   def index
     @perfils = Perfil.all.order("created_at DESC")
@@ -10,8 +11,12 @@ class PerfilsController < ApplicationController
   end
 
   def new
-    @perfil = current_user.build_perfil
-    @pic = @perfil.build_pic
+    if current_user.perfil.blank?
+      @perfil = current_user.build_perfil
+      @pic = @perfil.build_pic
+    else
+      redirect_to root_path , notice: "tienes ya un perfil"
+    end
   end
 
   def create
@@ -55,6 +60,12 @@ class PerfilsController < ApplicationController
 
   def perfil_params
     params.require(:perfil).permit(:first_name , :last_name , :birth_date , :age , :gender , :facebook_link , :twitter_link , :website_link , pic_attributes: [:id , :image ,:_destroy])
+  end
+
+  def perfil_auth
+    if @perfil.user != current_user
+      redirect_to root_path , notice: "no eres autorizado!"
+    end
   end
 
 end

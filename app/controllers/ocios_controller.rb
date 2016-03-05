@@ -1,6 +1,7 @@
 class OciosController < ApplicationController
   before_action :set_ocio , only: [:show , :edit , :update , :destroy , :upvote]
   before_action :authenticate_user! , except: [:index , :show]
+  before_action :ocio_auth , only: [:edit , :update , :destroy]
 
   def index
     @ocios = Ocio.all.order("created_at DESC")
@@ -55,6 +56,12 @@ class OciosController < ApplicationController
 
   def ocio_params
     params.require(:ocio).permit(:cat , :title , :dir , :desc , :price , :fecha ,  pic_attributes: [:id , :image , :_destroy])
+  end
+
+  def ocio_auth
+    if @ocio.user != current_user
+      redirect_to root_path , notice: "no eres autorizado para esta accion"
+    end
   end
 
 end
