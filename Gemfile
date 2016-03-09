@@ -18,6 +18,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'acts_as_votable', '~> 0.10.0'
 #gem 'masonry-rails', '~> 0.2.4'
 gem 'bootstrap-sass-extras'
+gem "smart_listing"
 
 group :development, :test do
   gem 'byebug'

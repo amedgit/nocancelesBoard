@@ -1,9 +1,7 @@
-#pins.transition-enabled
-  - if @alojamientos.any?
-    - @alojamientos.each do |alojamiento|
-      .box.panel-default
-        = link_to (image_tag alojamiento.pic.image.url) , alojamiento
-        .panel-body
-          %h2= link_to alojamiento.title , alojamiento
-  - else
-    %h3 Aún no hay nada de alojamientos!
+= smart_listing_controls_for(:alojamientos, {class: "form-inline text-right"}) do
+  .form-group.filter.input-append
+    = text_field_tag :filter, '', class: "search form-control",
+                          placeholder: "Search...", autocomplete: :off
+  %button.btn.btn-primary.disabled{type: :submit}
+    %span.glyphicon.glyphicon-search
+= smart_listing_render :alojamientos

@@ -1,10 +1,15 @@
 class OciosController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
   before_action :set_ocio , only: [:show , :edit , :update , :destroy , :upvote]
   before_action :authenticate_user! , except: [:index , :show]
   before_action :ocio_auth , only: [:edit , :update , :destroy]
 
   def index
-    @ocios = Ocio.all.order("created_at DESC")
+    ocios_scope = Ocio.all
+    ocios_scope = ocios_scope.like(params[:filter]) if params[:filter]
+    # @ocios = smart_listing_create :ocios, ocios_scope, partial: "ocios/list", page_sizes: [5, 7, 13, 26]
+    @ocios = smart_listing_create :ocios, ocios_scope, partial: 'ocios/list'
   end
 
   def show
@@ -55,7 +60,7 @@ class OciosController < ApplicationController
   end
 
   def ocio_params
-    params.require(:ocio).permit(:cat , :title , :dir , :desc , :price , :fecha ,  pic_attributes: [:id , :image , :_destroy])
+    params.require(:ocio).permit(:cat , :title , :dir , :desc , :price , :fecha , :city ,  pic_attributes: [:id , :image , :_destroy])
   end
 
   def ocio_auth

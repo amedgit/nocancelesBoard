@@ -18,7 +18,9 @@
   .form-group
     = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Indíca si hay condiciones especiales", required: true
   .form-group
-    = f.input :dir , input_html: {class: "form-control"} , label: "Dirección" , placeholder: "Escribe la dirección correcta , incluyendo la ciudad", required: true
+    = f.input :city , input_html: {class: "form-control"}, placeholder: "Indica la ciudad dende es el alojamiento" , label: "Ciudad", required: true
+  .form-group
+    = f.input :dir , input_html: {class: "form-control"} , label: "Dirección" , placeholder: "Escribe la dirección correcta ", required: true
   .form-group
     = f.input :fecha_ir , input_html: {class: "form-control"} , label: "Fecha y Hora De Ida", required: true
   .form-group

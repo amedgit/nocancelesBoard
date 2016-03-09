@@ -1,8 +1,7 @@
-.col-md-6.col-md-offset-3
-
-  %h1 Ocios
-  - if @ocios.any?
-    - @ocios.each do |ocio|
-      %h4= link_to ocio.title , ocio
-  - else
-    %h4 Aún no hay nada de ocios!
+= smart_listing_controls_for(:ocios, {class: "form-inline text-right"}) do
+  .form-group.filter.input-append
+    = text_field_tag :filter, '', class: "search form-control",
+                          placeholder: "Search...", autocomplete: :off
+  %button.btn.btn-primary.disabled{type: :submit}
+    %span.glyphicon.glyphicon-search
+= smart_listing_render :ocios

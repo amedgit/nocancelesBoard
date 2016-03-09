@@ -18,6 +18,8 @@
   .form-group
     = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu anuncio", required: true
   .form-group
+    = f.input :city , input_html: {class: "form-control"}, placeholder: "Indica la ciudad donde se hace el evento" , label: "Ciudad"  , required: true
+  .form-group
     = f.input :dir , input_html: {class: "form-control"} , label: "Dirección" , placeholder: "La dirección del evento", required: true
   .form-group
     = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "La fecha y horadel evento", required: true

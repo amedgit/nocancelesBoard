@@ -1,7 +1,7 @@
-.col-md-6.col-md-offset-3
-  %h1 transports
-  - if @transports.any?
-    - @transports.each do |transport|
-      %h4= link_to transport.title , transport
-  - else
-    %h4 Aún no hay nada de transportes!
+= smart_listing_controls_for(:transports, {class: "form-inline text-right"}) do
+  .form-group.filter.input-append
+    = text_field_tag :filter, '', class: "search form-control",
+                          placeholder: "Search...", autocomplete: :off
+  %button.btn.btn-primary.disabled{type: :submit}
+    %span.glyphicon.glyphicon-search
+= smart_listing_render :transports

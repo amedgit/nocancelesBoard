@@ -1,10 +1,15 @@
 class AlojamientosController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
   before_action :set_alojamiento , only: [:show,:edit , :update , :destroy , :upvote ]
   before_action :alojamiento_auth , only: [ :edit , :update , :destroy ]
   before_action :authenticate_user! , except: [:index , :show]
 
   def index
-    @alojamientos = Alojamiento.all.order("created_at DESC")
+    alojamientos_scope = Alojamiento.all
+    alojamientos_scope = alojamientos_scope.like(params[:filter]) if params[:filter]
+    # @alojamientos = smart_listing_create :alojamientos, alojamientos_scope, partial: "alojamientos/list", page_sizes: [5, 7, 13, 26]
+    @alojamientos = smart_listing_create :alojamientos, alojamientos_scope, partial: 'alojamientos/list'
   end
 
   def show
@@ -61,6 +66,6 @@ class AlojamientosController < ApplicationController
   end
 
   def alojamiento_params
-    params.require(:alojamiento).permit(:cat , :title , :dir , :desc , :price , :fecha_ir , :fecha_volver ,  pic_attributes: [:id , :image , :_destroy])
+    params.require(:alojamiento).permit(:cat , :title , :dir , :desc , :price , :fecha_ir , :fecha_volver , :city ,   pic_attributes: [:id , :image , :_destroy])
   end
 end

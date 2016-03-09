@@ -1,10 +1,15 @@
 class TransportsController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
   before_action :set_transport , only: [:show , :edit , :update , :destroy , :upvote]
   before_action :authenticate_user! , except: [:index , :show]
   before_action :transport_auth , only: [:edit , :update , :destroy]
 
   def index
-    @transports = Transport.all.order("created_at DESC")
+    transports_scope = Transport.all
+    transports_scope = transports_scope.like(params[:filter]) if params[:filter]
+    # @transports = smart_listing_create :transports, transports_scope, partial: "transports/list", page_sizes: [5, 7, 13, 26]
+    @transports = smart_listing_create :transports, transports_scope, partial: 'transports/list'
   end
 
   def show
