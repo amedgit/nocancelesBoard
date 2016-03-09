@@ -4,5 +4,5 @@ class Ocio < ActiveRecord::Base
   has_one :pic , as: :imageable , dependent: :destroy
   has_many :comments , as: :commentable , dependent: :destroy
   accepts_nested_attributes_for :pic , allow_destroy: true
-  scope :like, ->(args) { where("LOWER(city) like '%#{args}%' OR LOWER(cat) like '%#{args}%' OR LOWER(title) like '%#{args}%'  ")}
+  scope :like, ->(args) { where("LOWER(city) like LOWER('%#{args}%') OR LOWER(cat) like LOWER('%#{args}%') OR LOWER(title) like LOWER('%#{args}%')  ")}
 end

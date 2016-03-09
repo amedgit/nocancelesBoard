@@ -6,6 +6,6 @@ class Transport < ActiveRecord::Base
   accepts_nested_attributes_for :pic , allow_destroy: true
   validates_associated :pic
   validates :title , presence: true
-  scope :like, ->(args) { where("LOWER(to_city) like '%#{args}%' OR LOWER(from_city) like '%#{args}%' OR LOWER(cat) like '%#{args}%' OR LOWER(title) like '%#{args}%' ")}
+  scope :like, ->(args) { where("LOWER(to_city) like LOWER('%#{args}%') OR LOWER(from_city) like LOWER('%#{args}%') OR LOWER(cat) like LOWER('%#{args}%') OR LOWER(title) like LOWER('%#{args}%') ")}
 
 end
