@@ -1,14 +1,12 @@
 .row
   .col-md-8.col-md-offset-2
     %h3
-      %strong
-
-        = pluralize( commentable.comments.count , "commentario")
-
+      %strong= pluralize( commentable.comments.count , "commentario")
     - commentable.comments.each do |comment|
       .panel.panel-default
         .panel-heading
-          = comment.user.email
+          %strong= comment.user.email
+          = distance_of_time_in_words(comment.created_at , Time.now )
         .panel-body.pan
           = comment.body
           %div{class: "btn-group pull-right comment_#{comment.id}"}

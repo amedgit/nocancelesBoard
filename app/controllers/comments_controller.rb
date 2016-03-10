@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     @comment.upvote_by current_user
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js { render "comments/vote.js.erb" }
+      format.js   { render "comments/vote.js.erb" }
     end
   end
 
@@ -30,11 +30,13 @@ class CommentsController < ApplicationController
     @comment.downvote_by current_user
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js { render "comments/vote.js.erb" }
+      format.js   { render "comments/vote.js.erb" }
     end
   end
 
   private
+
+
 
   def comment_params
     params.require(:comment).permit(:body)
