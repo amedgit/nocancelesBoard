@@ -7,5 +7,7 @@ class Transport < ActiveRecord::Base
   validates_associated :pic
   validates :title , presence: true
   scope :like, ->(args) { where("LOWER(to_city) like LOWER('%#{args}%') OR LOWER(from_city) like LOWER('%#{args}%') OR LOWER(cat) like LOWER('%#{args}%') OR LOWER(title) like LOWER('%#{args}%') ")}
-
+  scope :cate, ->(args) { where("LOWER(cat) like LOWER('%#{args}%') ")}
+  scope :fciudad, ->(args) { where("LOWER(from_city) like LOWER('%#{args}%') ")}
+  scope :tciudad, ->(args) { where("LOWER(to_city) like LOWER('%#{args}%') ")}
 end

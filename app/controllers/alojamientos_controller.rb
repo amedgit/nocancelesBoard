@@ -9,6 +9,7 @@ class AlojamientosController < ApplicationController
     alojamientos_scope = Alojamiento.all
     alojamientos_scope = alojamientos_scope.like(params[:filter]) if params[:filter]
     alojamientos_scope = alojamientos_scope.cate(params[:category]) if params[:category]
+    alojamientos_scope = alojamientos_scope.ciudad(params[:ciudad]) if params[:ciudad]
     # @alojamientos = smart_listing_create :alojamientos, alojamientos_scope, partial: "alojamientos/list", page_sizes: [5, 7, 13, 26]
     @alojamientos = smart_listing_create :alojamientos, alojamientos_scope, partial: 'alojamientos/list'
   end

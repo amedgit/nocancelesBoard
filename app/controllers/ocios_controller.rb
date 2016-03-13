@@ -8,6 +8,8 @@ class OciosController < ApplicationController
   def index
     ocios_scope = Ocio.all
     ocios_scope = ocios_scope.like(params[:filter]) if params[:filter]
+    ocios_scope = ocios_scope.cate(params[:category]) if params[:category]
+    ocios_scope = ocios_scope.ciudad(params[:ciudad]) if params[:ciudad]
     # @ocios = smart_listing_create :ocios, ocios_scope, partial: "ocios/list", page_sizes: [5, 7, 13, 26]
     @ocios = smart_listing_create :ocios, ocios_scope, partial: 'ocios/list'
   end

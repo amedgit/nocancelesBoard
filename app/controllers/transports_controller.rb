@@ -8,6 +8,9 @@ class TransportsController < ApplicationController
   def index
     transports_scope = Transport.all
     transports_scope = transports_scope.like(params[:filter]) if params[:filter]
+    transports_scope = transports_scope.cate(params[:category]) if params[:category]
+    transports_scope = transports_scope.fciudad(params[:fciudad]) if params[:fciudad]
+    transports_scope = transports_scope.tciudad(params[:tciudad]) if params[:tciudad]
     # @transports = smart_listing_create :transports, transports_scope, partial: "transports/list", page_sizes: [5, 7, 13, 26]
     @transports = smart_listing_create :transports, transports_scope, partial: 'transports/list'
   end

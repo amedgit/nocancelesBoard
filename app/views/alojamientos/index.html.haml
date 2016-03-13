@@ -3,10 +3,9 @@
   .form-group.filter.input-append
     = text_field_tag :filter, '', class: "search form-control",
                           placeholder: "Search...", autocomplete: :off
-
-
     = text_field_tag :category, '', class: "search form-control",
                           placeholder: "category...", autocomplete: :off
-
+    = text_field_tag :ciudad, '', class: "search form-control",
+                          placeholder: "ciudad...", autocomplete: :off
 
 = smart_listing_render :alojamientos
