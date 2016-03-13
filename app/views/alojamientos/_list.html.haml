@@ -1,24 +1,24 @@
 - unless smart_listing.empty?
   %table.table.table-striped
     %thead
-      %th.col-md-2= smart_listing.sortable "Título", "title"
+      %th.col-md-3= smart_listing.sortable "Título", "title"
       %th.col-md-2= smart_listing.sortable "Categoria", "cat"
       %th.col-md-2= smart_listing.sortable "Precio", "price"
-      %th.col-md-2= smart_listing.sortable "Ciudad", "city"
+      %th.col-md-3= smart_listing.sortable "Ciudad", "city"
       %th.col-md-2= smart_listing.sortable "Fecha", "created_at"
-      %th.col-md-2= "Descripcion"
+
     %tbody
-      - smart_listing.collection.each do |o|
+      - smart_listing.collection.each do |alojamiento|
         %tr
           -# User row goes here...
-          %td= link_to truncate(o.title, length: 25) , o
-          %td= link_to  o.cat , o
+          %td= link_to truncate(alojamiento.title, length: 25) , alojamiento
+          %td= link_to  alojamiento.cat , alojamiento
           %td
-            = o.price
+            = alojamiento.price
             €
-          %td= o.city
-          %td= o.created_at.to_formatted_s(:short)
-          %td= truncate(o.desc, length: 17)
+          %td= alojamiento.city
+          %td= alojamiento.created_at.to_formatted_s(:short)
+
 
   -# Render nice pagination links fitted for Bootstrap 3 by default
   = smart_listing.paginate

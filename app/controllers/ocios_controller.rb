@@ -23,7 +23,7 @@ class OciosController < ApplicationController
   def create
     @ocio = current_user.ocios.build(ocio_params)
     if @ocio.save
-      redirect_to @ocio , notice: "created successfully :)"
+      redirect_to @ocio , notice: "Ocio creado"
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class OciosController < ApplicationController
 
   def update
     if @ocio.update(ocio_params)
-      redirect_to @ocio , notice: "updated successfully :)"
+      redirect_to @ocio , notice: "Ocio actualizado"
     else
       render 'edit'
     end
@@ -42,7 +42,7 @@ class OciosController < ApplicationController
 
   def destroy
     @ocio.destroy
-    redirect_to root_path , notice: "eliminated successfully :)"
+    redirect_to root_path , notice: "Ocio eliminado"
   end
 
   def upvote
@@ -65,7 +65,7 @@ class OciosController < ApplicationController
 
   def ocio_auth
     if @ocio.user != current_user
-      redirect_to root_path , notice: "no eres autorizado para esta accion"
+      redirect_to root_path , notice: "no autorizado"
     end
   end
 

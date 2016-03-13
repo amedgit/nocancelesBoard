@@ -15,14 +15,14 @@ class PerfilsController < ApplicationController
       @perfil = current_user.build_perfil
       @pic = @perfil.build_pic
     else
-      redirect_to root_path , notice: "tienes ya un perfil"
+      redirect_to root_path , notice: "Perfil existe ya"
     end
   end
 
   def create
     @perfil = current_user.build_perfil(perfil_params)
     if @perfil.save
-      redirect_to @perfil , notice: "perfil creado correctamente"
+      redirect_to @perfil , notice: "perfil creado "
     else
       render 'new'
     end
@@ -33,7 +33,7 @@ class PerfilsController < ApplicationController
 
   def update
     if @perfil.update(perfil_params)
-      redirect_to @perfil  , notice: "perfil modificado correctamente"
+      redirect_to @perfil  , notice: "perfil actulizado"
     else
       render 'edit'
     end
@@ -64,7 +64,7 @@ class PerfilsController < ApplicationController
 
   def perfil_auth
     if @perfil.user != current_user
-      redirect_to root_path , notice: "no eres autorizado!"
+      redirect_to root_path , notice: "No autorizado!"
     end
   end
 

@@ -24,7 +24,7 @@ class AlojamientosController < ApplicationController
   def create
     @alojamiento = current_user.alojamientos.build(alojamiento_params)
     if @alojamiento.save
-      redirect_to @alojamiento , notice: "created successfully :)"
+      redirect_to @alojamiento , notice: "Alojamiento creado "
     else
       render 'new'
     end
@@ -35,7 +35,7 @@ class AlojamientosController < ApplicationController
 
   def update
     if @alojamiento.update(alojamiento_params)
-      redirect_to @alojamiento , notice: "updated successfully :)"
+      redirect_to @alojamiento , notice: "Alojamiento actualizado "
     else
       render 'edit'
     end
@@ -43,7 +43,7 @@ class AlojamientosController < ApplicationController
 
   def destroy
     @alojamiento.destroy
-    redirect_to root_path , notice: "eliminated successfully :)"
+    redirect_to root_path , notice: "Alojamiento elimindo"
   end
 
   def upvote
@@ -62,7 +62,7 @@ class AlojamientosController < ApplicationController
 
   def alojamiento_auth
     if @alojamiento.user != current_user
-      redirect_to root_path , notice: "no eres autorizado "
+      redirect_to root_path , notice: "No autorizado "
     end
   end
 

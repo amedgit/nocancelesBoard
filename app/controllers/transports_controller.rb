@@ -23,7 +23,7 @@ class TransportsController < ApplicationController
   def create
     @transport = current_user.transports.build(transport_params)
     if @transport.save
-      redirect_to @transport , notice: "created successfully :)"
+      redirect_to @transport , notice: "Transporte creado"
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class TransportsController < ApplicationController
 
   def update
     if @transport.update(transport_params)
-      redirect_to @transport , notice: "updated successfully :)"
+      redirect_to @transport , notice: "Transporte actualizado"
     else
       render 'edit'
     end
@@ -42,7 +42,7 @@ class TransportsController < ApplicationController
 
   def destroy
     @transport.destroy
-    redirect_to root_path
+    redirect_to root_path , notice: "Transporte eliminado"
   end
 
   def upvote
@@ -65,7 +65,7 @@ class TransportsController < ApplicationController
 
   def transport_auth
     if @transport.user != current_user
-      redirect_to root_path , notice: "no eres autorizado"
+      redirect_to root_path , notice: "No autorizado"
     end
   end
 end

@@ -9,21 +9,21 @@
       %th.col-md-2= smart_listing.sortable "Fecha", "created_at"
 
     %tbody
-      - smart_listing.collection.each do |o|
+      - smart_listing.collection.each do |transport|
         %tr
           -# User row goes here...
-          %td= link_to truncate(o.title, length: 25) , o
-          %td= link_to  o.cat , o
+          %td= link_to truncate(transport.title, length: 25) , transport
+          %td= link_to  transport.cat , transport
           %td
-            = o.price
+            = transport.price
             €
-          %td= o.from_city
-          %td= o.to_city
-          %td= o.created_at.to_formatted_s(:short)
+          %td= transport.from_city
+          %td= transport.to_city
+          %td= transport.created_at.to_formatted_s(:short)
 
 
   -# Render nice pagination links fitted for Bootstrap 3 by default
   = smart_listing.paginate
   = smart_listing.pagination_per_page_links
 - else
-  %p.warning Ningún transporte!
+  %p.warning Ningún Transporte!
