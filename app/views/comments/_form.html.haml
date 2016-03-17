@@ -1,6 +1,6 @@
 .row
   .col-md-8.col-md-offset-2
-    = simple_form_for [commentable , Comment.new] do |f|
+    = simple_form_for [commentable , Comment.new] , html: { id: 'comment_form' } , remote: true do |f|
       .form-group
         = f.input :body , input_html: { class: "form-control"} , placeholder: "Añadir un comentario" , label: false , required: true
-      = f.button :submit , "Envía" , class: "btn btn-primary"
+      = f.button :submit , "Enviar" , class: "btn btn-primary btn-block"

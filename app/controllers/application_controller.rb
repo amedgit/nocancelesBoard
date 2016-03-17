@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
      devise_parameter_sanitizer.for(:sign_up) << :terms_and_conditions
   end
+
+  def authenticate!
+    return true if user_signed_in?
+    respond_to do |format|
+      format.js { render js:"window.location.href='#{new_user_session_path}'"}
+      format.html { redirect_to root_path, :alert => 'no autorizado' }
+    end
+  end
 end

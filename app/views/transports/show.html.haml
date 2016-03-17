@@ -5,10 +5,10 @@
         = image_tag @transport.pic.image.url
       .panel-body
         %h1= @transport.title
-        %p.description
+        %p
           %h3
             %strong= @transport.cat
-          = @transport.desc
+          .description= @transport.desc
           %strong= @transport.price
           euros
           desde
@@ -31,5 +31,7 @@
               = render 'transports/like', transport: @transport
 
 
-= render partial: 'comments/comments' , locals: { commentable: @transport }
-= render partial: 'comments/form' , locals: { commentable: @transport }
+%div{class: "comment_transport_#{@transport.id}"}
+  = render partial: 'comments/comments' , locals: { commentable: @transport }
+%div{class: "form_transport_#{@transport.id}"}
+  = render partial: 'comments/form' , locals: { commentable: @transport }

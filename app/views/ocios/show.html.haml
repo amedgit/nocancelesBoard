@@ -5,10 +5,11 @@
         = image_tag @ocio.pic.image.url
       .panel-body
         %h1= @ocio.title
-        %p.description
+        %p
           %h3
             %strong= @ocio.cat
-          = @ocio.desc
+          .description= @ocio.desc
+
           El
           %strong precio
           es
@@ -31,6 +32,7 @@
           .col-md-6
             %div{class: "btn-group pull-right ocio_#{@ocio.id}"}
               = render 'ocios/like', ocio: @ocio
-
-= render partial: 'comments/comments' , locals: { commentable: @ocio }
-= render partial: 'comments/form' , locals: { commentable: @ocio }
+%div{class: "comment_ocio_#{@ocio.id}"}
+  = render partial: 'comments/comments' , locals: { commentable: @ocio }
+%div{class: "form_ocio_#{@ocio.id}"}
+  = render partial: 'comments/form' , locals: { commentable: @ocio }

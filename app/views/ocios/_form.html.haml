@@ -10,11 +10,11 @@
 
   .form-group
     = f.simple_fields_for :pic , @pic do |pic|
-      = pic.input :image , as: :file , input_html: {class: "form-control"} , hint: "Selecciona la foto del billete" , label: "Imagen", required: true
+      = pic.input :image , as: :file , input_html: {class: "form-control"} , hint: "Seleccionar la foto del billete" , label: "Imagen", required: true
   .form-group
     = f.input :cat , collection: ["Cine","Teatro","Concierto","Zoo","Museo","Estadio"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige el tipo de billete" , required: true
   .form-group
-    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título" , placeholder: "Escribeun titulo de tu ocio" , required: true
+    = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título " , label: "Título" , placeholder: "Escribeun titulo de tu ocio" , required: true
   .form-group
     = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu anuncio", required: true
   .form-group

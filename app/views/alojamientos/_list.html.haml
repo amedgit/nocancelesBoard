@@ -2,10 +2,10 @@
   %table.table.table-striped
     %thead
       %th.col-md-3= smart_listing.sortable "Título", "title"
-      %th.col-md-2= smart_listing.sortable "Categoria", "cat"
+      %th.col-md-3= smart_listing.sortable "Categoria", "cat"
       %th.col-md-2= smart_listing.sortable "Precio", "price"
-      %th.col-md-3= smart_listing.sortable "Ciudad", "city"
-      %th.col-md-2= smart_listing.sortable "Fecha", "created_at"
+      %th.col-md-2= smart_listing.sortable "Ciudad", "city"
+      %th.col-md-2= smart_listing.sortable "Fecha", "fecha_ir"
 
     %tbody
       - smart_listing.collection.each do |alojamiento|

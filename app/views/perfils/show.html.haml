@@ -55,5 +55,7 @@
               = render 'perfils/like', perfil: @perfil
 
 
-= render partial: 'comments/comments' , locals: { commentable: @perfil }
-= render partial: 'comments/form'     , locals: { commentable: @perfil }
+%div{class: "comment_perfil_#{@perfil.id}"}
+  = render partial: 'comments/comments' , locals: { commentable: @perfil }
+%div{class: "form_perfil_#{@perfil.id}"}
+  = render partial: 'comments/form' , locals: { commentable: @perfil }

@@ -1,19 +1,26 @@
 class CommentsController < ApplicationController
+  before_action :authenticate!
   before_action :set_commentable
-  before_action :authenticate_user!
+
 
   def create
      @comment = @commentable.comments.build(comment_params)
      @comment.user_id = current_user.id
      if @comment.save
-       redirect_to @commentable
+       respond_to do |format|
+         format.html { redirect_to @commentable }
+         format.js {render 'comments/create.js.erb'}
+       end
      end
   end
 
   def destroy
     comment = @commentable.comments.find(params[:id])
     comment.destroy
-    redirect_to @commentable
+    respond_to do |format|
+      format.html { redirect_to @commentable }
+      format.js {render 'comments/create.js.erb'}
+    end
   end
 
   def upvote

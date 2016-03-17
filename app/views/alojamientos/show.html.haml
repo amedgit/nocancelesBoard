@@ -5,10 +5,10 @@
         = image_tag @alojamiento.pic.image.url
       .panel-body
         %h1= @alojamiento.title
-        %p.description
+        %p
           %h3
             %strong= @alojamiento.cat
-          = @alojamiento.desc
+          .description= @alojamiento.desc
           El
           %strong precio
           es
@@ -35,5 +35,7 @@
             %div{class: "btn-group pull-right alojamiento_#{@alojamiento.id}"}
               = render 'alojamientos/like', alojamiento: @alojamiento
 
-= render partial: 'comments/comments' , locals: { commentable: @alojamiento }
-= render partial: 'comments/form' , locals: { commentable: @alojamiento }
+%div{class: "comment_alojamiento_#{@alojamiento.id}"}
+  = render partial: 'comments/comments' , locals: { commentable: @alojamiento }
+%div{class: "form_alojamiento_#{@alojamiento.id}"}
+  = render partial: 'comments/form' , locals: { commentable: @alojamiento }
