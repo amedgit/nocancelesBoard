@@ -3,4 +3,8 @@
     = simple_form_for [commentable , Comment.new] , html: { id: 'comment_form' } , remote: true do |f|
       .form-group
         = f.input :body , input_html: { class: "form-control"} , placeholder: "Añadir un comentario" , label: false , required: true
+<<<<<<< HEAD
       = f.button :submit , "Enviar" , class: "btn btn-primary btn-block"
+=======
+      = f.button :submit , "Envía" , class: "btn btn-primary"
+>>>>>>> index filter added
