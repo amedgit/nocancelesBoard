@@ -11,8 +11,11 @@
       - smart_listing.collection.each do |ocio|
         %tr
           -# User row goes here...
-          %td= link_to truncate(ocio.title, length: 25) , ocio
-          %td= link_to  ocio.cat , ocio
+          %td
+            = link_to ocio do
+              = truncate(ocio.title, length: 25)
+              %span.badge= ocio.comments.count
+          %td= ocio.cat
           %td
             = ocio.price
             €

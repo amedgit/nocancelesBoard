@@ -2,11 +2,15 @@ class OciosController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
   before_action :set_ocio , only: [:show , :edit , :update , :destroy , :upvote]
-  before_action :authenticate_user! , except: [:index , :show]
+  before_action :authenticate! , except: [:index , :show]
   before_action :ocio_auth , only: [:edit , :update , :destroy]
 
   def index
-    ocios_scope = Ocio.all
+    if params[:cat].blank?
+      ocios_scope = Ocio.all
+    else
+      ocios_scope = Ocio.where(cat: params[:cat])
+    end
     ocios_scope = ocios_scope.like(params[:filter]) if params[:filter]
     ocios_scope = ocios_scope.cate(params[:category]) if params[:category]
     ocios_scope = ocios_scope.ciudad(params[:ciudad]) if params[:ciudad]
@@ -67,7 +71,7 @@ class OciosController < ApplicationController
 
   def ocio_auth
     if @ocio.user != current_user
-      redirect_to root_path , notice: "no autorizado"
+      redirect_to @ocio , alert: "No autorizado"
     end
   end
 

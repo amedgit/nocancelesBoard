@@ -11,8 +11,11 @@
       - smart_listing.collection.each do |alojamiento|
         %tr
           -# User row goes here...
-          %td= link_to truncate(alojamiento.title, length: 25) , alojamiento
-          %td= link_to  alojamiento.cat , alojamiento
+          %td
+            = link_to   alojamiento do
+              = truncate(alojamiento.title, length: 25)
+              %span.badge= alojamiento.comments.count
+          %td= alojamiento.cat 
           %td
             = alojamiento.price
             €

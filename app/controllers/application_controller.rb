@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     return true if user_signed_in?
     respond_to do |format|
       format.js { render js:"window.location.href='#{new_user_session_path}'"}
-      format.html { redirect_to root_path, :alert => 'no autorizado' }
+      format.html { redirect_to new_user_session_path , :alert => 'no autorizado' }
     end
   end
 end

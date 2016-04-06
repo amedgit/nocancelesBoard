@@ -2,11 +2,15 @@ class TransportsController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
   before_action :set_transport , only: [:show , :edit , :update , :destroy , :upvote]
-  before_action :authenticate_user! , except: [:index , :show]
+  before_action :authenticate! , except: [:index , :show]
   before_action :transport_auth , only: [:edit , :update , :destroy]
 
   def index
-    transports_scope = Transport.all
+    if params[:cat].blank?
+      transports_scope = Transport.all
+    else
+      transports_scope = Transport.where(cat: params[:cat])
+    end
     transports_scope = transports_scope.like(params[:filter]) if params[:filter]
     transports_scope = transports_scope.cate(params[:category]) if params[:category]
     transports_scope = transports_scope.fciudad(params[:fciudad]) if params[:fciudad]
@@ -68,7 +72,7 @@ class TransportsController < ApplicationController
 
   def transport_auth
     if @transport.user != current_user
-      redirect_to root_path , notice: "No autorizado"
+      redirect_to @transport , alert: "No autorizado"
     end
   end
 end

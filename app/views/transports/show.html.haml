@@ -2,7 +2,7 @@
   .col-md-8.col-md-offset-2
     .panel.panel-default
       .panel-heading.pin_image
-        = image_tag @transport.pic.image.url
+        = image_tag @transport.pic.image.url , class: "img-rounded"
       .panel-body
         %h1= @transport.title
         %p

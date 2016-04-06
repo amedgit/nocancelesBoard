@@ -1,25 +1,29 @@
 - unless smart_listing.empty?
-  %table.table.table-striped
-    %thead
-      %th.col-md-2= smart_listing.sortable "Título", "title"
-      %th.col-md-2= smart_listing.sortable "Categoria", "cat"
-      %th.col-md-2= smart_listing.sortable "Precio", "price"
-      %th.col-md-2= smart_listing.sortable "Origen", "from_city"
-      %th.col-md-2= smart_listing.sortable "Destino", "to_city"
-      %th.col-md-2= smart_listing.sortable "Fecha", "created_at"
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %th.col-md-2= smart_listing.sortable "Título", :title
+        %th.col-md-2= smart_listing.sortable "Categoria", :cat
+        %th.col-md-2= smart_listing.sortable "Precio", :price
+        %th.col-md-2= smart_listing.sortable "Origen", :from_city
+        %th.col-md-2= smart_listing.sortable "Destino", :to_city
+        %th.col-md-2= smart_listing.sortable "Fecha", :created_at
 
-    %tbody
-      - smart_listing.collection.each do |transport|
-        %tr
-          -# User row goes here...
-          %td= link_to truncate(transport.title, length: 25) , transport
-          %td= link_to  transport.cat , transport
-          %td
-            = transport.price
-            €
-          %td= transport.from_city
-          %td= transport.to_city
-          %td= transport.created_at.to_formatted_s(:short)
+      %tbody
+        - smart_listing.collection.each do |transport|
+          %tr
+            -# User row goes here...
+            %td
+              = link_to transport , class: "btn btn-primary" do
+                = truncate(transport.title, length: 25)
+                %span.badge= transport.comments.count
+            %td= transport.cat
+            %td
+              = transport.price
+              €
+            %td= transport.from_city
+            %td= transport.to_city
+            %td= transport.created_at.to_formatted_s(:short)
 
 
   -# Render nice pagination links fitted for Bootstrap 3 by default

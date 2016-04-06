@@ -4,9 +4,9 @@
       .panel-heading
         %h1= link_to "Transportes" , transports_path , class: "btn btn-primary btn-block btn-lg "
       - if @transports.any?
-        - @transports.each do |transport|
+        - @transports.limit(2).each do |transport|
           .panel-body
-            =link_to (image_tag transport.pic.image.url(:medium)) , transport
+            =link_to (image_tag transport.pic.image.url(:medium) , class: "img-rounded") , transport
             %h2= link_to transport.title , transport
       - else
         %h4 Aún no hay nada de transportes!
@@ -15,9 +15,9 @@
       .panel-heading
         %h1= link_to "Ocios" , ocios_path , class: "btn btn-primary btn-block btn-lg"
       - if @ocios.any?
-        - @ocios.each do |ocio|
+        - @ocios.limit(2).each do |ocio|
           .panel-body
-            = link_to (image_tag ocio.pic.image.url(:medium)) , ocio
+            = link_to (image_tag ocio.pic.image.url(:medium) , class: "img-rounded") , ocio
             %h2= link_to ocio.title , ocio
       - else
         %h4 Aún no hay nada de ocios!
@@ -26,9 +26,9 @@
       .panel-heading
         %h1= link_to "Alojamientos" , alojamientos_path , class: "btn btn-primary btn-block btn-lg"
       - if @alojamientos.any?
-        - @alojamientos.each do |alojamiento|
+        - @alojamientos.limit(2).each do |alojamiento|
           .panel-body
-            = link_to (image_tag alojamiento.pic.image.url(:medium)) , alojamiento
+            = link_to (image_tag alojamiento.pic.image.url(:medium), class: "img-rounded") , alojamiento
             %h2= link_to alojamiento.title , alojamiento
       - else
         %h4 Aún no hay nada de alojamientos!

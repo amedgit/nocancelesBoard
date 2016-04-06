@@ -19,6 +19,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 #gem 'masonry-rails', '~> 0.2.4'
 gem 'bootstrap-sass-extras'
 gem "smart_listing"
+gem "awesome_print"
 
 group :development, :test do
   gem 'byebug'

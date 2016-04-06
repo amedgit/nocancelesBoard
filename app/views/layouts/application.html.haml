@@ -7,78 +7,10 @@
   = javascript_include_tag 'application'
   = csrf_meta_tags
 %body
-  %nav.navbar.navbar-inverse.navbar-main-collapse
-    .container
-      / Brand and toggle get grouped for better mobile display
-      .navbar-header
-        %button.navbar-toggle.collapsed#datebox{"aria-expanded" => "false","data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        .navbar-brand= link_to "Pin Board" , root_path
-      / Collect the nav links, forms, and other content for toggling
-      #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        - if user_signed_in?
-          %ul.nav.navbar-nav
-            %li.active
-              = link_to "Transportes" , transports_path
-              %span.sr-only (current)
-            %li= link_to "Ocios" , ocios_path
-            %li= link_to "Alojamientos" , alojamientos_path
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
-                Crear Anuncio
-                %span.caret
-              %ul.dropdown-menu#demolist
-                %li= link_to "Nuevo Transporte" , new_transport_path
-                %li= link_to "Nuevo Ocio" , new_ocio_path
-                %li= link_to "Nuevo Alojamiento" , new_alojamiento_path
-                %li.divider{:role => "separator"}
-                %li= link_to "separated link" , "#"
-                %li.divider{:role => "separator"}
-                %li= link_to "another one" , "#"
-
-          %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Usuarios" , users_path
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                %span.glyphicon.glyphicon-user
-                = current_user.email
-                %span.caret
-              %ul.dropdown-menu
-                - if current_user.perfil.blank?
-                  %li
-                    = link_to  new_perfil_path do
-                      %span.glyphicon.glyphicon-user
-                      Crear Perfil
-                - else
-                  %li
-                    = link_to  current_user.perfil do
-                      %span.glyphicon.glyphicon-user
-                      Ver Perfil
-
-
-                %li.divider{:role => "separator"}
-                %li
-                  = link_to  edit_user_registration_path do
-                    %span.glyphicon.glyphicon-pencil
-                    Editar Cuenta
-
-                %li.divider{:role => "separator"}
-                %li
-                  = link_to  destroy_user_session_path , method: :delete do
-                    %span.glyphicon.glyphicon-log-in
-                    Salir
-        - else
-          %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Entrar" , new_user_session_path
-            %li= link_to "Registrar" , new_user_registration_path
-
+  = render 'layouts/navbar'
   .container
     - flash.each do |name , msg|
       = content_tag :div , msg , class: "alert alert-info"
-
     = yield
 
 %script

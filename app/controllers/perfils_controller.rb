@@ -1,6 +1,6 @@
 class PerfilsController < ApplicationController
   before_action :set_perfil , only: [:edit , :update , :show , :destroy ,  :upvote]
-  before_action :authenticate_user!,  except: [:index , :show ]
+  before_action :authenticate!,  except: [:index , :show ]
   before_action :perfil_auth , only: [:edit , :update , :destroy]
 
   def index
@@ -64,7 +64,7 @@ class PerfilsController < ApplicationController
 
   def perfil_auth
     if @perfil.user != current_user
-      redirect_to root_path , notice: "No autorizado!"
+      redirect_to @perfil , alert: "No autorizado!"
     end
   end
 

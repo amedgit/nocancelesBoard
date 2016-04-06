@@ -1,50 +1,56 @@
-.row#pin_show
+.row
   .col-md-8.col-md-offset-2
     .panel.panel-default
-      .panel-heading.pin_image
-
-        = image_tag (@perfil.pic.image.url)
       .panel-body
-        %h1
-          perfil de
-          = current_user.email
+        .row
+          .col-md-6
+            .panel.panel-default
+              .panel-body
+                = image_tag (@perfil.pic.image.url(:medium))
+          .col-md-6
+            .panel.panel-default
+              .panel-body
+                %br
+
+                %p.description
+
+                  %strong Nombre:
+                  - if @perfil.first_name.present?
+                    = @perfil.first_name
+                  %br
+                  %br
+                  %strong Apellido:
+                  - if @perfil.last_name.present?
+                    = @perfil.last_name
+                  %br
+                  %br
+                  %strong Edad:
+                  - if @perfil.age.present?
+                    = @perfil.age
+                  %br
+                  %br
+                  %strong sexo:
+                  - if @perfil.gender.present?
+                    = @perfil.gender
+                  %br
+                  %br
+                  %strong Facebook:
+                  - if @perfil.facebook_link.present?
+                    = @perfil.facebook_link
+                  %br
+                  %br
+                  %strong Twitter:
+                  - if @perfil.twitter_link.present?
+                    = @perfil.twitter_link
+                  %br
+                  %br
+
+                  %strong Website:
+                  - if @perfil.website_link.present?
+                    = @perfil.website_link
+                  %br
 
 
-        %p.description
-
-          %strong Nombre:
-          - if @perfil.first_name.present?
-            = @perfil.first_name
-          %br
-          %strong Apellido:
-          - if @perfil.last_name.present?
-            = @perfil.last_name
-          %br
-          %strong Fecha de nacimiento:
-          - if @perfil.birth_date.present?
-            = @perfil.birth_date
-          %br
-          %strong Edad:
-          - if @perfil.age.present?
-            = @perfil.age
-          %br
-          %strong sexo:
-          - if @perfil.gender.present?
-            = @perfil.gender
-          %br
-          %strong Facebook:
-          - if @perfil.facebook_link.present?
-            = @perfil.facebook_link
-          %br
-          %strong Twitter:
-          - if @perfil.twitter_link.present?
-            = @perfil.twitter_link
-          %br
-          %strong Website:
-          - if @perfil.website_link.present?
-            = @perfil.website_link
-          %br
-        %p
       .panel-footer
         .row
           .col-md-6

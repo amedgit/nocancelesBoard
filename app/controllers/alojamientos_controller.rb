@@ -3,15 +3,20 @@ class AlojamientosController < ApplicationController
   helper  SmartListing::Helper
   before_action :set_alojamiento , only: [:show,:edit , :update , :destroy , :upvote ]
   before_action :alojamiento_auth , only: [ :edit , :update , :destroy ]
-  before_action :authenticate_user! , except: [:index , :show]
+  before_action :authenticate! , except: [:index , :show]
 
   def index
-    alojamientos_scope = Alojamiento.all
+    if params[:cat].blank?
+      alojamientos_scope = Alojamiento.all
+    else
+      alojamientos_scope = Alojamiento.where(cat: params[:cat])
+    end
     alojamientos_scope = alojamientos_scope.like(params[:filter]) if params[:filter]
     alojamientos_scope = alojamientos_scope.cate(params[:category]) if params[:category]
     alojamientos_scope = alojamientos_scope.ciudad(params[:ciudad]) if params[:ciudad]
     # @alojamientos = smart_listing_create :alojamientos, alojamientos_scope, partial: "alojamientos/list", page_sizes: [5, 7, 13, 26]
     @alojamientos = smart_listing_create :alojamientos, alojamientos_scope, partial: 'alojamientos/list'
+
   end
 
   def show
@@ -63,7 +68,7 @@ class AlojamientosController < ApplicationController
 
   def alojamiento_auth
     if @alojamiento.user != current_user
-      redirect_to root_path , notice: "No autorizado "
+      redirect_to @alojamiento , alert: "No autorizado "
     end
   end
 
