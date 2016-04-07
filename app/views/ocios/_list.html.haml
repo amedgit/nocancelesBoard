@@ -1,26 +1,27 @@
 - unless smart_listing.empty?
-  %table.table.table-striped
-    %thead
-      %th.col-md-3= smart_listing.sortable "Título", "title"
-      %th.col-md-2= smart_listing.sortable "Categoria", "cat"
-      %th.col-md-2= smart_listing.sortable "Precio", "price"
-      %th.col-md-3= smart_listing.sortable "Ciudad", "city"
-      %th.col-md-2= smart_listing.sortable "Fecha", "created_at"
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %th.col-md-3= smart_listing.sortable "Título", "title"
+        %th.col-md-2= smart_listing.sortable "Categoria", "cat"
+        %th.col-md-2= smart_listing.sortable "Precio", "price"
+        %th.col-md-3= smart_listing.sortable "Ciudad", "city"
+        %th.col-md-2= smart_listing.sortable "Fecha", "created_at"
 
-    %tbody
-      - smart_listing.collection.each do |ocio|
-        %tr
-          -# User row goes here...
-          %td
-            = link_to ocio do
-              = truncate(ocio.title, length: 25)
-              %span.badge= ocio.comments.count
-          %td= ocio.cat
-          %td
-            = ocio.price
-            €
-          %td= ocio.city
-          %td= ocio.created_at.to_formatted_s(:short)
+      %tbody
+        - smart_listing.collection.each do |ocio|
+          %tr
+            -# User row goes here...
+            %td
+              = link_to ocio do
+                = truncate(ocio.title, length: 25)
+                %span.badge= ocio.comments.count
+            %td= ocio.cat
+            %td
+              = ocio.price
+              €
+            %td= ocio.city
+            %td= ocio.created_at.to_formatted_s(:short)
 
 
   -# Render nice pagination links fitted for Bootstrap 3 by default

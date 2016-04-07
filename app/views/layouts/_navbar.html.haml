@@ -7,15 +7,23 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      .navbar-brand= link_to "Pin Board" , root_path
+      .navbar-brand= link_to "No Canceles!" , root_path
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
-          = link_to "Transportes" , transports_path
-          %span.sr-only (current)
-        %li= link_to "Ocios" , ocios_path
-        %li= link_to "Alojamientos" , alojamientos_path
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
+            Ofertas
+            %span.caret
+          %ul.dropdown-menu#demolist
+            %li
+              = link_to "Transportes" , transports_path
+              %span.sr-only (current)
+            %li= link_to "Ocios" , ocios_path
+            %li= link_to "Alojamientos" , alojamientos_path
+            %li.dropdown
+        .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Nocanceles/", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
+
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li= link_to "Usuarios" , users_path
