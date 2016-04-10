@@ -3,13 +3,13 @@
     %h3
       %strong= pluralize( commentable.comments.count , "commentario")
     - commentable.comments.each do |comment|
-      .panel.panel-default
+      .panel.panel-info
         .panel-heading.pan-comment
           .row
             .col-md-6
               .commenter
                 %strong= comment.user.email
-                = distance_of_time_in_words(comment.created_at , Time.now )
+                = time_ago_in_words(comment.created_at )
             .col-md-6
               %div{class: "btn-group pull-right comment_#{comment.id}"}
                 = render partial: 'comments/comment_likes' , locals: {comment: comment , commentable: commentable}

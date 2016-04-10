@@ -5,5 +5,37 @@
         %h1 Editar el Perfil
 
       .panel-body
-        = image_tag @perfil.pic.image.url(:medium)
-        = render 'form'
+        = image_tag @perfil.pic.image.url(:medium) if @perfil.pic.present?
+        = simple_form_for @perfil  , html: {multipart: true} do |f|
+          - if @perfil.errors.any?
+            #errors
+              %h2
+              = pluralize(@perfil.errors.count , "error")
+              prevented this accion from saving
+              %ul
+                - @perfil.errors.full_messages.each  do |msg|
+                  %li= msg
+
+
+          .form-group
+            = f.simple_fields_for :pic , @pic do |pi|
+              = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen de perfil" , hint: "Seleciona la imagen de tu perfil"
+          .form-group
+            = f.input :first_name  , input_html: {class: "form-control"} , label: "Nombre:"
+          .form-group
+            = f.input :last_name  , input_html: {class: "form-control"} , label: "Apellido:"
+          .form-group
+            = f.input :birth_date , input_html: {class: "form-control"} , label: "Fecha de nacimiento"
+          .form-group
+            = f.input :age , input_html: {class: "form-control"} , label: "Edad" , placeholder: "Cuántos años tienes? "
+          .form-group
+            = f.input :gender , collection: ["Hombre" , "Mujer"], input_html: {class: "form-control"} , label: "Sexo" , hint: "Indica si eres hombre o mujer"
+          .form-group
+            = f.input :facebook_link , input_html: {class: "form-control"} , label: "Facebook" , placeholder: "Indica tu página de facebook"
+          .form-group
+            = f.input :twitter_link , input_html: {class: "form-control"} , label: "Twitter" , placeholder: "Indica tu página de twitter"
+          .form-group
+            = f.input :website_link , input_html: {class: "form-control"} , label: "Website" , placeholder: "Indica tu website o blog personal"
+
+
+          = f.button :submit , class: "btn btn-primary"

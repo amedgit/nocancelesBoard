@@ -1,6 +1,7 @@
 class OciosController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
+  
   before_action :set_ocio , only: [:show , :edit , :update , :destroy , :upvote]
   before_action :authenticate! , except: [:index , :show]
   before_action :ocio_auth , only: [:edit , :update , :destroy]

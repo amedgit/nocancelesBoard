@@ -67,7 +67,7 @@ class TransportsController < ApplicationController
   end
 
   def transport_params
-    params.require(:transport).permit(:cat , :title , :desc , :from_city , :to_city , :price , :fecha , pic_attributes: [:image , :_destroy])
+    params.require(:transport).permit(:cat , :title , :desc , :from_city , :to_city , :price , :fecha , pic_attributes: [:id , :image , :_destroy])
   end
 
   def transport_auth

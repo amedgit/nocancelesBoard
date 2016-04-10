@@ -17,8 +17,6 @@
   .form-group
     = f.input :last_name  , input_html: {class: "form-control"} , label: "Apellido:"
   .form-group
-    = f.input :birth_date , input_html: {class: "form-control"} , label: "Fecha de nacimiento"
-  .form-group
     = f.input :age , input_html: {class: "form-control"} , label: "Edad" , placeholder: "Cuántos años tienes? "
   .form-group
     = f.input :gender , collection: ["Hombre" , "Mujer"], input_html: {class: "form-control"} , label: "Sexo" , hint: "Indica si eres hombre o mujer"

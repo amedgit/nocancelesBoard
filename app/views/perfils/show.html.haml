@@ -6,7 +6,10 @@
           .col-md-6
             .panel.panel-default
               .panel-body
-                = image_tag (@perfil.pic.image.url(:medium))
+                - if @perfil.pic.blank?
+                  = image_tag ("desconocido.jpg") , class: "book"
+                -else
+                  = image_tag (@perfil.pic.image.url(:medium))
           .col-md-6
             .panel.panel-default
               .panel-body
@@ -16,12 +19,12 @@
 
                   %strong Nombre:
                   - if @perfil.first_name.present?
-                    = @perfil.first_name
+                    = @perfil.first_name.capitalize
                   %br
                   %br
                   %strong Apellido:
                   - if @perfil.last_name.present?
-                    = @perfil.last_name
+                    = @perfil.last_name.capitalize
                   %br
                   %br
                   %strong Edad:
