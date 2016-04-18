@@ -20,7 +20,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'bootstrap-sass-extras'
 gem "smart_listing"
 gem "awesome_print"
-gem 'aws-sdk', '~> 2.2', '>= 2.2.34'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug'
