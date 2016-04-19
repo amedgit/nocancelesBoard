@@ -10,7 +10,7 @@
             = f.input :email, required: true, autofocus: true , label: "Correo"
             = f.input :password, required: true, label: "Contraseña",  hint: ("#{@minimum_password_length} caracteres minimum" if @minimum_password_length)
             = f.input :password_confirmation, required: true , label: "Confirmar las contraseña"
-            = f.input :terms_and_conditions  , label: "Aceptas las condiciones de uso Aceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de usoAceptas las condiciones de uso"  , as: :boolean
+            = f.input :terms_and_conditions  , label: ("Acepto las #{link_to "condiciones de uso" , "/term"}.").html_safe  , as: :boolean
           .form-actions
             = f.button :submit, "Registrar" , class: "btn btn-primary"
       .panel-footer

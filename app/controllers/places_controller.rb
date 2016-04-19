@@ -6,4 +6,10 @@ class PlacesController < ApplicationController
     @alojamientos = Alojamiento.all.order("created_at DESC")
   end
 
+  def term
+  end
+
+  def norm
+  end
+
 end
