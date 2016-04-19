@@ -26,7 +26,7 @@
 
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
-          %li= link_to "Usuarios" , users_path
+          %li= link_to "Nosotros" , "/nosotros"
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
               Crear Anuncio
@@ -69,6 +69,8 @@
                 = link_to  destroy_user_session_path , method: :delete do
                   %span.glyphicon.glyphicon-log-in
                   Salir
+              %li.divider{:role => "separator"}
+              %li= link_to "Los Usuarios" , users_path
       - else
         %ul.nav.navbar-nav.navbar-right
           %li= link_to "Entrar" , new_user_session_path

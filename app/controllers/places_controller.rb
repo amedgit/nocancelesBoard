@@ -12,4 +12,7 @@ class PlacesController < ApplicationController
   def norm
   end
 
+  def nosotros
+  end
+
 end
