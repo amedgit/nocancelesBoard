@@ -60,7 +60,8 @@ Rails.application.routes.draw do
 
   get "/term" => "places#term"
   get "/norm" => "places#norm"
-  get "/nosotros" => "places#nosotros" 
+  get "/nosotros" => "places#nosotros"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

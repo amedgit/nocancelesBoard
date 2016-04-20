@@ -2,9 +2,9 @@
 = smart_listing_controls_for(:alojamientos, {class: "form-inline text-right"}) do
   .form-group.filter.input-append
     = text_field_tag :filter, '', class: "search form-control",
-                          placeholder: "Search...", autocomplete: :off
+                          placeholder: "buscar...", autocomplete: :off
     = select_tag :category, "<option>Hotel</option><option>Hostal</option><option>Apartamento</option><option>Apartahotel</option>".html_safe ,
-                          include_blank: true ,
+                          :prompt=>"Todos" ,
                           class: "search form-control",
                           autocomplete: :off
     = text_field_tag :ciudad, '', class: "search form-control",

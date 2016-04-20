@@ -13,7 +13,7 @@
     = f.simple_fields_for :pic , @pic do |pi|
       = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "Seleciona la imagen de tu billete" , required: true
   .form-group
-    = f.input :cat , collection: ["Avión" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viage" , required: true
+    = f.input :cat , collection: ["Avion" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viage" , required: true
   .form-group
     = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título" , required: true
   .form-group
