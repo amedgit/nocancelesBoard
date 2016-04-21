@@ -19,10 +19,7 @@
           %strong= @ocio.city
           %strong= @ocio.dir
           en la fecha de
-          %strong= @ocio.fecha
-        %p
-          submited by
-          %strong= @ocio.user.email
+          %strong= @ocio.fecha.strftime('%d %b %Y %l:%M %p')
       .panel-footer
         .row
           .col-md-6

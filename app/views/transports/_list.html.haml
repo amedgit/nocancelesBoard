@@ -7,7 +7,7 @@
         %th.col-md-2= smart_listing.sortable "Precio", :price
         %th.col-md-2= smart_listing.sortable "Origen", :from_city
         %th.col-md-2= smart_listing.sortable "Destino", :to_city
-        %th.col-md-2= smart_listing.sortable "Fecha", :created_at
+        %th.col-md-2= smart_listing.sortable "Fecha", :fecha
 
       %tbody
         - smart_listing.collection.each do |transport|
@@ -23,7 +23,7 @@
               €
             %td= transport.from_city
             %td= transport.to_city
-            %td= transport.created_at.to_formatted_s(:short)
+            %td= transport.fecha.strftime('%d %b %Y %l:%M %p')
 
 
   -# Render nice pagination links fitted for Bootstrap 3 by default

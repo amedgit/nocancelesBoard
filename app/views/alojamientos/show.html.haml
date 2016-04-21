@@ -19,12 +19,9 @@
           en
           %strong= @alojamiento.dir
           y la fecha de ida es
-          %strong= @alojamiento.fecha_ir
+          %strong= @alojamiento.fecha_ir.strftime('%d %b %Y %l:%M %p')
           y la vuelta es en
-          %strong= @alojamiento.fecha_volver
-        %p
-          submited by
-          %strong= @alojamiento.user.email
+          %strong= @alojamiento.fecha_volver.strftime('%d %b %Y %l:%M %p')
       .panel-footer
         .row
           .col-md-6

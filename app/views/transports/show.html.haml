@@ -16,10 +16,7 @@
           a
           %strong= @transport.to_city
           en fecha:
-          %strong= @transport.fecha
-        %p
-          submited by
-          %strong= @transport.user.email
+          %strong= @transport.fecha.strftime('%d %b %Y %l:%M %p')
       .panel-footer
         .row
           .col-md-6
