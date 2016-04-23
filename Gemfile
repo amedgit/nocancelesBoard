@@ -21,6 +21,7 @@ gem 'bootstrap-sass-extras'
 gem "smart_listing"
 gem "awesome_print"
 gem 'aws-sdk', '< 2.0'
+gem 'geocomplete_rails'
 
 group :development, :test do
   gem 'byebug'

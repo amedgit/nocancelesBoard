@@ -14,5 +14,11 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require smart_listing
+//= require geocomplete
 
 //= require_tree .
+$(function() {
+  $(".geo").geocomplete({
+     componentRestrictions: {country: "es"}
+  });
+});

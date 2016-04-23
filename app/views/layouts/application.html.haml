@@ -4,16 +4,18 @@
 %head
   %title No Canceles!
   %meta{:content => "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1", :name => "viewport"}
-
   = stylesheet_link_tag    'application', media: 'all'
   = javascript_include_tag 'application'
   = csrf_meta_tags
   = favicon_link_tag 'favicon.ico'
+  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&language=es&region=ES"}
 %body
   = render 'layouts/navbar'
   .container
-    - flash.each do |name , msg|
-      = content_tag :div , msg , class: "alert alert-info"
+    .row
+      .col-md-8.col-md-offset-2
+        - flash.each do |name , msg|
+          = content_tag :div , msg , class: "alert alert-info"
     = yield
   %br
 
