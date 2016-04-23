@@ -6,7 +6,7 @@
       - if @transports.any?
         - @transports.limit(2).each do |transport|
           .panel-body
-            =link_to (image_tag transport.pic.image.url(:medium) , class: "img-rounded") , transport
+            =link_to (image_tag transport.pic.image.url(:medium) , class: "img-rounded img-responsive") , transport
             %h2= link_to transport.title , transport
       - else
         %h4 Aún no hay nada de transportes!
@@ -17,7 +17,7 @@
       - if @ocios.any?
         - @ocios.limit(2).each do |ocio|
           .panel-body
-            = link_to (image_tag ocio.pic.image.url(:medium) , class: "img-rounded") , ocio
+            = link_to (image_tag ocio.pic.image.url(:medium) , class: "img-rounded img-responsive") , ocio
             %h2= link_to ocio.title , ocio
       - else
         %h4 Aún no hay nada de ocios!
@@ -28,7 +28,7 @@
       - if @alojamientos.any?
         - @alojamientos.limit(2).each do |alojamiento|
           .panel-body
-            = link_to (image_tag alojamiento.pic.image.url(:medium), class: "img-rounded") , alojamiento
+            = link_to (image_tag alojamiento.pic.image.url(:medium), class: "img-rounded img-responsive") , alojamiento
             %h2= link_to alojamiento.title , alojamiento
       - else
         %h4 Aún no hay nada de alojamientos!

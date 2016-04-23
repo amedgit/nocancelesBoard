@@ -10,7 +10,7 @@
 
   .form-group
     = f.simple_fields_for :pic , @pic do |pi|
-      = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "selecciona una imagen de tu billete" , required: true
+      = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "selecciona una imagen de tu reserva" , required: true
   .form-group
     = f.input :cat , collection: ["Hotel","Hostal","Apartahotel","Apartamento"] , input_html: {class: "form-control"} , label: "Tipo De Alojamiento" , hint: "Elige la categoria adecuada", required: true
   .form-group
@@ -18,7 +18,7 @@
   .form-group
     = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Indíca si hay condiciones especiales", required: true
   .form-group
-    = f.input :city , input_html: {class: "form-control"}, placeholder: "Indica la ciudad dende es el alojamiento" , label: "Ciudad", required: true
+    = f.input :city , input_html: {class: "form-control geo"}, placeholder: "Indica la ciudad donde es el alojamiento" , label: "Ciudad", required: true
   .form-group
     = f.input :dir , input_html: {class: "form-control"} , label: "Dirección" , placeholder: "Escribe la dirección correcta ", required: true
   .form-group
@@ -28,4 +28,4 @@
   .form-group
     = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "El precio es de euro y debe ser inferior o igual al precio original", required: true
 
-  = f.button :submit , class: "btn btn-primary"
+  = f.button :submit ,"Crear", class: "btn btn-primary"

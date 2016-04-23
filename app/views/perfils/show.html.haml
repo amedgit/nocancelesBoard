@@ -7,7 +7,7 @@
             .panel.panel-default
               .panel-body
                 - if @perfil.pic.blank?
-                  = image_tag ("desconocido.jpg") , class: "book"
+                  = image_tag ("desconocido.jpg") , class: "book img-responsive"
                 -else
                   = image_tag (@perfil.pic.image.url(:medium))
           .col-md-6

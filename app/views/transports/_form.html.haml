@@ -13,19 +13,19 @@
     = f.simple_fields_for :pic , @pic do |pi|
       = pi.input :image , as: :file , input_html: {class: "form-control"} , label: "Imagen" , hint: "Seleciona la imagen de tu billete" , required: true
   .form-group
-    = f.input :cat , collection: ["Avion" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viage" , required: true
+    = f.input :cat , collection: ["Avion" , "Bus" , "Tren"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige la categoria del viaje" , required: true
   .form-group
     = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título" , label: "Título" , required: true
   .form-group
     = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu oferta " , required: true
   .form-group
-    = f.input :from_city , input_html: {class: "form-control geo" } , label: "Origen" , placeholder: "Indica la ciudad desde la cual tienes el billete", required: true
+    = f.input :from_city , input_html: {class: "form-control geo" } , label: "Origen" , placeholder: "Indica la ciudad de salida", required: true
   .form-group
-    = f.input :to_city , input_html: {class: "form-control geo"} , label: "Destino" , placeholder: "Indica la ciudad  de la destinación", required: true
+    = f.input :to_city , input_html: {class: "form-control geo"} , label: "Destino" , placeholder: "Indica la ciudad  de llegada", required: true
   .form-group
-    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "Indica la fecha y la hora de partenza", required: true
+    = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "Indica la fecha y la hora de salida", required: true
   .form-group
     = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "Escribe el precio que debe ser igual o inferior al precio real del billete", required: true
 
 
-  = f.button :submit , class: "btn btn-primary"
+  = f.button :submit ,"Crear" , class: "btn btn-primary"

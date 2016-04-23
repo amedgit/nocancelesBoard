@@ -21,7 +21,7 @@
           .form-group
             = f.input :cat , collection: ["Cine","Teatro","Concierto","Zoo","Museo","Estadio"] , input_html: {class: "form-control"} , label: "Billete De" , hint: "Elige el tipo de billete" , required: true
           .form-group
-            = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título " , label: "Título" , placeholder: "Escribeun titulo de tu ocio" , required: true
+            = f.input :title , input_html: {class: "form-control"}, placeholder: "Escribe un título " , label: "Título" , placeholder: "Escribe un titulo de tu ocio" , required: true
           .form-group
             = f.input :desc , input_html: {class: "form-control"} , label: "Descripción" , placeholder: "Explica las condiciones de tu anuncio", required: true
           .form-group
@@ -31,7 +31,7 @@
           .form-group
             = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "La fecha y hora del evento", required: true
           .form-group
-            = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "indica el precio del billete q debe ser igual o inferior del precio original", required: true
+            = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "indica el precio del billete que debe ser igual o inferior del precio original", required: true
 
-          = f.button :submit , class: "btn btn-primary"
+          = f.button :submit ,"Actualizar", class: "btn btn-primary"
 m'
