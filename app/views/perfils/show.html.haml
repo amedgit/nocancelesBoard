@@ -7,9 +7,9 @@
             .panel.panel-default
               .panel-body
                 - if @perfil.pic.blank?
-                  = image_tag ("desconocido.jpg") , class: "book img-responsive"
+                  = image_tag ("desconocido.jpg") , class: " img-responsive"
                 -else
-                  = image_tag (@perfil.pic.image.url(:medium))
+                  = image_tag (@perfil.pic.image.url(:medium)) , class: " img-responsive"
           .col-md-6
             .panel.panel-default
               .panel-body
