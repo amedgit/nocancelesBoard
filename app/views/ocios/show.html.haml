@@ -2,7 +2,7 @@
   .col-md-8.col-md-offset-2
     .panel.panel-default
       .panel-heading.pin_image
-        = image_tag @ocio.pic.image.url
+        = image_tag @ocio.pic.image.url , class: "img-rounded"
       .panel-body
         %h1= @ocio.title
         %p
@@ -24,7 +24,7 @@
         .row
           .col-md-6
             %p.user
-              submited by
+              subido por
               %strong= @ocio.user.email
           .col-md-6
             %div{class: "btn-group pull-right ocio_#{@ocio.id}"}

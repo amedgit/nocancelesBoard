@@ -2,7 +2,7 @@
   .col-md-8.col-md-offset-2
     .panel.panel-default
       .panel-heading.pin_image
-        = image_tag @alojamiento.pic.image.url
+        = image_tag @alojamiento.pic.image.url , class: "img-rounded"
       .panel-body
         %h1= @alojamiento.title
         %p
@@ -26,7 +26,7 @@
         .row
           .col-md-6
             %p.user
-              submited by
+              subido por
               %strong= @alojamiento.user.email
           .col-md-6
             %div{class: "btn-group pull-right alojamiento_#{@alojamiento.id}"}
