@@ -26,8 +26,11 @@
         .row
           .col-md-6
             %p.user
-              subido por
-              %strong= @alojamiento.user.email
+              por
+              - if @alojamiento.user.perfil.blank?
+                %strong= @alojamiento.user.email
+              - else
+                %strong= link_to @alojamiento.user.email , @alojamiento.user.perfil
           .col-md-6
             %div{class: "btn-group pull-right alojamiento_#{@alojamiento.id}"}
               = render 'alojamientos/like', alojamiento: @alojamiento

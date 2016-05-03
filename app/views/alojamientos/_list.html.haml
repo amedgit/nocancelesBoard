@@ -6,8 +6,8 @@
         %th.col-md-2= smart_listing.sortable "Categoria", "cat"
         %th.col-md-2= smart_listing.sortable "Precio", "price"
         %th.col-md-2= smart_listing.sortable "Ciudad", "city"
-        %th.col-md-2= smart_listing.sortable "Fecha", "fecha_ir"
-        %th.col-md-2= smart_listing.sortable "Fecha", "fecha_volver"
+        %th.col-md-2= smart_listing.sortable "Fecha-ida", "fecha_ir"
+        %th.col-md-2= smart_listing.sortable "Fecha-vuelta", "fecha_volver"
 
       %tbody
         - smart_listing.collection.each do |alojamiento|

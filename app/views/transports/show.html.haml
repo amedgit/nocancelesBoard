@@ -21,8 +21,11 @@
         .row
           .col-md-6
             %p.user
-              subido por
-              %strong= @transport.user.email
+              por
+              - if @transport.user.perfil.blank?
+                %strong= @transport.user.email
+              - else
+                %strong= link_to @transport.user.email , @transport.user.perfil
           .col-md-6
             %div{class: "btn-group pull-right transport_#{@transport.id}"}
               = render 'transports/like', transport: @transport

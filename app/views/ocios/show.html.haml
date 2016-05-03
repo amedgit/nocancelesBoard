@@ -24,8 +24,11 @@
         .row
           .col-md-6
             %p.user
-              subido por
-              %strong= @ocio.user.email
+              por
+              - if @ocio.user.perfil.blank?
+                %strong= @ocio.user.email
+              - else
+                %strong= link_to @ocio.user.email , @ocio.user.perfil
           .col-md-6
             %div{class: "btn-group pull-right ocio_#{@ocio.id}"}
               = render 'ocios/like', ocio: @ocio
