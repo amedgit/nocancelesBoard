@@ -21,12 +21,19 @@
               %span.sr-only (current)
             %li= link_to "Ocios" , ocios_path
             %li= link_to "Alojamientos" , alojamientos_path
-            %li.dropdown
-        .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Nocanceles/", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
+            Redes Sociales
+            %span.caret
+          %ul.dropdown-menu#demolist
+            %li
+              %a.twitter-follow-button{"data-show-count" => "true", "data-show-screen-name" => "false", "data-size" => "large", :href => "https://twitter.com/nocanceles"}
+            %li
+              .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Nocanceles/", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "true"}
+        %li= link_to "Nosotros" , "/nosotros"
 
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
-          %li= link_to "Nosotros" , "/nosotros"
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
               Crear Anuncio
