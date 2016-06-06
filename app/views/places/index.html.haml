@@ -2,7 +2,7 @@
   .col-md-4
     .panel.panel-default
       .panel-heading
-        %h1= link_to "Transportes" , transports_path , class: "btn btn-primary btn-block btn-lg "
+        %h1= link_to "Transportes (#{Transport.count})" , transports_path , class: "btn btn-primary btn-block btn-lg "
       - if @transports.any?
         - @transports.limit(2).each do |transport|
           .panel-body
@@ -13,7 +13,7 @@
   .col-md-4
     .panel.panel-default
       .panel-heading
-        %h1= link_to "Ocios" , ocios_path , class: "btn btn-primary btn-block btn-lg"
+        %h1= link_to "Ocios (#{Ocio.count})" , ocios_path , class: "btn btn-primary btn-block btn-lg"
       - if @ocios.any?
         - @ocios.limit(2).each do |ocio|
           .panel-body
@@ -24,7 +24,7 @@
   .col-md-4
     .panel.panel-default
       .panel-heading
-        %h1= link_to "Alojamientos" , alojamientos_path , class: "btn btn-primary btn-block btn-lg"
+        %h1= link_to "Alojamientos (#{Alojamiento.count})" , alojamientos_path , class: "btn btn-primary btn-block btn-lg"
       - if @alojamientos.any?
         - @alojamientos.limit(2).each do |alojamiento|
           .panel-body
