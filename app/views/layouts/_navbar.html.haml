@@ -23,14 +23,15 @@
             %li= link_to "Alojamientos" , alojamientos_path
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
-            Redes Sociales
+            Redes Sociales y Foro
             %span.caret
           %ul.dropdown-menu#demolist
             %li
               .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Nocanceles/", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "true"}
             %li
               %a.twitter-follow-button{"data-show-count" => "true", "data-show-screen-name" => "false", :href => "https://twitter.com/nocanceles"} siguenos en @nocanceles
-
+            %li.divider{:role => "separator"}
+            %li= link_to "Nuestro Foro", "http://nocanceles.foroactivo.com"
 
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
