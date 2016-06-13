@@ -15,7 +15,7 @@
             -# User row goes here...
             %td
               = link_to transport  do
-                = truncate(transport.title, length: 25)
+                = truncate(transport.title, length: 20)
                 %span.badge= transport.comments.count
             %td= transport.cat
             %td
