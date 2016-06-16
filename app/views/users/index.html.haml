@@ -2,7 +2,7 @@
   .panel.panel-default
     .panel-heading
       %h1
-        ="Lista de los usuarios (#{User.count})"
+        ="Los Usuarios (#{User.count})"
     .panel-body
       .table-responsive
         %table.table.table-hover
@@ -23,7 +23,7 @@
                         %span.caret
                       %ul.dropdown-menu
                         .table-responsive
-                          %table.table.table-hover
+                          %table.table.table-bordered
                             %thead
                               %tr
                                 %th
@@ -38,18 +38,18 @@
 
                             %tbody
                               %tr
-                                %td
+                                %td.col-md-4
                                   - user.transports.each do |t|
-                                    %li= link_to truncate(t.title, length: 10) , t
-                                    %li.divider{:role => "separator"}
-                                %td
+                                    %li= link_to truncate(t.title, length: 10) , t , class: "btn btn-default"
+                                    %li.divider{role: "separator"}
+                                %td.col-md-4
                                   - user.ocios.each do |o|
-                                    %li= link_to truncate(o.title, length: 10) , o
-                                    %li.divider{:role => "separator"}
-                                %td
+                                    %li= link_to truncate(o.title, length: 10) , o , class: "btn btn-default"
+                                    %li.divider{role: "separator"}
+                                %td.col-md-4
                                   - user.alojamientos.each do |a|
-                                    %li= link_to truncate(a.title, length: 10) , a
-                                    %li.divider{:role => "separator"}
+                                    %li= link_to truncate(a.title, length: 10) , a , class: "btn btn-default"
+                                    %li.divider{role: "separator"}
 
                 %td= link_to "ver perfil" , user.perfil , class: "btn btn-info btn-sm" if user.perfil.present?
 
