@@ -1,4 +1,4 @@
-.col-md-6.col-md-offset-3
+.col-md-8.col-md-offset-2
   .panel.panel-default
     .panel-heading
       %h1
@@ -15,7 +15,42 @@
             %tbody
               %tr
                 %td= user.email
-                %td= link_to "#{user_posts user} anuncios" , "#" , class: "user-modal btn btn-success btn-sm"  if (user_posts user) > 0
+                %td
+                  -if (user_posts user) > 0
+                    %li.dropdown
+                      %a.dropdown-toggle.btn.btn-success.btn-sm{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
+                        = "#{user_posts user} anuncios"
+                        %span.caret
+                      %ul.dropdown-menu
+                        .table-responsive
+                          %table.table.table-hover
+                            %thead
+                              %tr
+                                %th
+                                  Transportes
+                                  %span.badge= user.transports.count
+                                %th
+                                  Ocios
+                                  %span.badge= user.ocios.count
+                                %th
+                                  Alojamientos
+                                  %span.badge= user.alojamientos.count
+
+                            %tbody
+                              %tr
+                                %td
+                                  - user.transports.each do |t|
+                                    %li= link_to truncate(t.title, length: 10) , t
+                                    %li.divider{:role => "separator"}
+                                %td
+                                  - user.ocios.each do |o|
+                                    %li= link_to truncate(o.title, length: 10) , o
+                                    %li.divider{:role => "separator"}
+                                %td
+                                  - user.alojamientos.each do |a|
+                                    %li= link_to truncate(a.title, length: 10) , a
+                                    %li.divider{:role => "separator"}
+
                 %td= link_to "ver perfil" , user.perfil , class: "btn btn-info btn-sm" if user.perfil.present?
 
         %br
