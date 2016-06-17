@@ -1,0 +1,33 @@
+%li.dropdown
+  %a.dropdown-toggle.btn.btn-success.btn-sm{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown" , :role => "button"}
+    anuncios
+    %span.badge= user_posts user
+    %span.caret
+  %ul.dropdown-menu
+    .table-responsive
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th
+              Transp.
+              %span.badge= user.transports.count
+            %th
+              Ocios
+              %span.badge= user.ocios.count
+            %th
+              Alojam.
+              %span.badge= user.alojamientos.count
+        %tbody
+          %tr
+            %td.col-md-4
+              - user.transports.each do |t|
+                %li= link_to truncate(t.title, length: 10) , t , class: "btn btn-default"
+                %li.divider{role: "separator"}
+            %td.col-md-4
+              - user.ocios.each do |o|
+                %li= link_to truncate(o.title, length: 10) , o , class: "btn btn-default"
+                %li.divider{role: "separator"}
+            %td.col-md-4
+              - user.alojamientos.each do |a|
+                %li= link_to truncate(a.title, length: 10) , a , class: "btn btn-default"
+                %li.divider{role: "separator"}
