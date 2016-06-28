@@ -10,11 +10,12 @@
               %th El Usuario
               %th Anun. Publicados
               %th El Perfil
-          - @users.each do |user|
+
             %tbody
-              %tr
-                %td= user.email
-                %td= render partial: "users/user_anunc" , locals: {user: user} if (user_posts user) > 0
-                %td= link_to "ver perfil" , user.perfil , class: "btn btn-info btn-sm" if user.perfil.present?
+              - @users.each do |user|
+                %tr
+                  %td= user.email
+                  %td= render partial: "users/user_anunc" , locals: {user: user} if (user_posts user) > 0
+                  %td= link_to "ver perfil" , user.perfil , class: "btn btn-info btn-sm" if user.perfil.present?
 
         %br
