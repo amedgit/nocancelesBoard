@@ -78,8 +78,20 @@
                 = link_to  destroy_user_session_path , method: :delete do
                   %span.glyphicon.glyphicon-log-in
                   Salir
+
               %li.divider{:role => "separator"}
-              %li= link_to "Los Usuarios" , users_path
+              %li
+                = link_to  users_path do
+                  %span.glyphicon.glyphicon-user
+                  %span.glyphicon.glyphicon-user
+                  Usuarios
+
+              - if current_user.try(:admin?)
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to  "/admin" do
+                    %span.glyphicon.glyphicon-eye-open
+                    admin
       - else
         %ul.nav.navbar-nav.navbar-right
           %li= link_to "Nosotros" , "/nosotros"

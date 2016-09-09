@@ -22,6 +22,9 @@ gem "smart_listing"
 gem "awesome_print"
 gem 'aws-sdk', '< 2.0'
 gem 'geocomplete_rails'
+gem 'rails_admin'
+gem 'rails_admin-i18n'
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'byebug'
