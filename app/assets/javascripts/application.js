@@ -19,6 +19,6 @@
 //= require_tree .
 $(function() {
   $(".geo").geocomplete({
-     componentRestrictions: {country: "es"}
+     //componentRestrictions: {country: "es"}
   });
 });
