@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909133825) do
+ActiveRecord::Schema.define(version: 20170125225129) do
 
   create_table "alojamientos", force: :cascade do |t|
     t.string   "cat"
@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 20160909133825) do
     t.text     "desc"
     t.integer  "user_id"
     t.integer  "price"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "city"
+    t.string   "unidad",       default: "EURO"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -43,10 +44,11 @@ ActiveRecord::Schema.define(version: 20160909133825) do
     t.string   "dir"
     t.integer  "price"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.datetime "fecha"
     t.string   "city"
+    t.string   "unidad",     default: "EURO"
   end
 
   create_table "perfils", force: :cascade do |t|
@@ -82,9 +84,10 @@ ActiveRecord::Schema.define(version: 20160909133825) do
     t.string   "to_city"
     t.integer  "price"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.datetime "fecha"
+    t.string   "unidad",     default: "EURO"
   end
 
   create_table "users", force: :cascade do |t|

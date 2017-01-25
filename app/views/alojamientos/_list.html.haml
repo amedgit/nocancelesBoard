@@ -4,7 +4,8 @@
       %thead
         %th.col-md-2= smart_listing.sortable "Título", "title"
         %th.col-md-2= smart_listing.sortable "Categoria", "cat"
-        %th.col-md-2= smart_listing.sortable "Precio", "price"
+        %th.col-md-1= smart_listing.sortable "Precio", "price"
+        %th.col-md-1= smart_listing.sortable "Unidad", "unidad"
         %th.col-md-2= smart_listing.sortable "Ciudad", "city"
         %th.col-md-2= smart_listing.sortable "Fecha-ida", "fecha_ir"
         %th.col-md-2= smart_listing.sortable "Fecha-vuelta", "fecha_volver"
@@ -18,9 +19,8 @@
                 = truncate(alojamiento.title, length: 25)
                 %span.badge= alojamiento.comments.count
             %td= alojamiento.cat
-            %td
-              = alojamiento.price
-              €
+            %td= alojamiento.price
+            %td= alojamiento.unidad
             %td= alojamiento.city
             %td= alojamiento.fecha_ir.strftime('%d %b %Y %l:%M %p')
             %td= alojamiento.fecha_volver.strftime('%d %b %Y %l:%M %p')

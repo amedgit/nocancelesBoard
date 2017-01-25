@@ -4,7 +4,8 @@
       %thead
         %th.col-md-2= smart_listing.sortable "Título", :title
         %th.col-md-2= smart_listing.sortable "Categoria", :cat
-        %th.col-md-2= smart_listing.sortable "Precio", :price
+        %th.col-md-1= smart_listing.sortable "Precio", :price
+        %th.col-md-1= smart_listing.sortable "Unidad", :unidad
         %th.col-md-2= smart_listing.sortable "Origen", :from_city
         %th.col-md-2= smart_listing.sortable "Destino", :to_city
         %th.col-md-2= smart_listing.sortable "Fecha", :fecha
@@ -18,9 +19,8 @@
                 = truncate(transport.title, length: 20)
                 %span.badge= transport.comments.count
             %td= transport.cat
-            %td
-              = transport.price
-              €
+            %td= transport.price
+            %td= transport.unidad
             %td= transport.from_city
             %td= transport.to_city
             %td= transport.fecha.strftime('%d %b %Y %l:%M %p')

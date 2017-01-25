@@ -2,7 +2,7 @@
   .row
     .panel.panel-default
       .panel-heading
-        %h1 Editar Alojamiento 
+        %h1 Editar Alojamiento
       .panel-body
         = image_tag @alojamiento.pic.image.url(:medium)
         = simple_form_for @alojamiento , html: {multipart: true} do |f|
@@ -34,5 +34,7 @@
             = f.input :fecha_volver , input_html: {class: "form-control"} , label: "Fecha y Hora de Vuelta", required: true
           .form-group
             = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "El precio es de euro y debe ser inferior o igual al precio original", required: true
+          .form-group
+            = f.input :unidad , collection: ["EURO" , "DÓLAR AMERICANO" , "LIBRA ESTERLINA", "PESO ARGENTINO", "PESO BOLIVIANO","PESO CHILENO","PESO COLOMBIANO" , "PESO MEXICANO"] , input_html: {class: "form-control"} , label: "Unidad De Dinero"  , required: true
 
           = f.button :submit ,"Actualizar",  class: "btn btn-primary"

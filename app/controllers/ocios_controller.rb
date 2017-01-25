@@ -1,7 +1,7 @@
 class OciosController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
-  
+
   before_action :set_ocio , only: [:show , :edit , :update , :destroy , :upvote]
   before_action :authenticate! , except: [:index , :show]
   before_action :ocio_auth , only: [:edit , :update , :destroy]
@@ -67,7 +67,7 @@ class OciosController < ApplicationController
   end
 
   def ocio_params
-    params.require(:ocio).permit(:cat , :title , :dir , :desc , :price , :fecha , :city ,  pic_attributes: [:id , :image , :_destroy])
+    params.require(:ocio).permit(:cat , :title , :dir , :desc , :price , :fecha , :city ,:unidad ,  pic_attributes: [:id , :image , :_destroy])
   end
 
   def ocio_auth

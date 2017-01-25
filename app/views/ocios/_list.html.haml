@@ -2,10 +2,11 @@
   .table-responsive
     %table.table.table-striped
       %thead
-        %th.col-md-3= smart_listing.sortable "Título", "title"
+        %th.col-md-2= smart_listing.sortable "Título", "title"
         %th.col-md-2= smart_listing.sortable "Categoria", "cat"
         %th.col-md-2= smart_listing.sortable "Precio", "price"
-        %th.col-md-3= smart_listing.sortable "Ciudad", "city"
+        %th.col-md-2= smart_listing.sortable "Unidad", "unidad"
+        %th.col-md-2= smart_listing.sortable "Ciudad", "city"
         %th.col-md-2= smart_listing.sortable "Fecha", "fecha"
 
       %tbody
@@ -17,9 +18,8 @@
                 = truncate(ocio.title, length: 25)
                 %span.badge= ocio.comments.count
             %td= ocio.cat
-            %td
-              = ocio.price
-              €
+            %td= ocio.price
+            %td= ocio.unidad
             %td= ocio.city
             %td= ocio.fecha.strftime('%d %b %Y %l:%M %p')
 

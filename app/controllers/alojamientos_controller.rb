@@ -73,6 +73,6 @@ class AlojamientosController < ApplicationController
   end
 
   def alojamiento_params
-    params.require(:alojamiento).permit(:cat , :title , :dir , :desc , :price , :fecha_ir , :fecha_volver , :city ,   pic_attributes: [:id , :image , :_destroy])
+    params.require(:alojamiento).permit(:cat , :title , :dir , :desc , :price , :fecha_ir , :fecha_volver , :city , :unidad ,  pic_attributes: [:id , :image , :_destroy])
   end
 end
