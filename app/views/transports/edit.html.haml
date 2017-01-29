@@ -32,7 +32,7 @@
           .form-group
             = f.input :fecha , input_html: {class: "form-control"} , label: "Fecha y Hora" , hint: "Indica la fecha y la hora de salida", required: true
           .form-group
-            = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "Escribe el precio que debe ser igual o inferior al precio real del billete", required: true
+            = f.input :price , input_html: {class: "form-control"} , label: "Precio" , placeholder: "Debe ser igual o inferior al precio real del billete", required: true
           .form-group
             = f.input :unidad , collection: ["EURO" , "DÓLAR AMERICANO" , "LIBRA ESTERLINA", "PESO ARGENTINO", "PESO BOLIVIANO","PESO CHILENO","PESO COLOMBIANO" , "PESO MEXICANO"] , input_html: {class: "form-control"} , label: "Unidad De Dinero"  , required: true
 

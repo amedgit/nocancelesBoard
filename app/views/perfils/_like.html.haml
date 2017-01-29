@@ -1,8 +1,9 @@
 = link_to like_perfil_path(perfil) , method: :put , remote:true , class: "btn btn-info perfil-like" do
   %span.glyphicon.glyphicon-heart
     = perfil.get_upvotes.size
-  -if user_signed_in? && current_user.id == @perfil.user_id
+  -if user_signed_in? && current_user.id == perfil.user_id
     = link_to  edit_perfil_path(current_user.perfil) , class: 'btn btn-warning' do
       %span.glyphicon.glyphicon-pencil
-    = link_to  @perfil , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
+    = link_to  perfil , method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-danger' do
       %span.glyphicon.glyphicon-trash
+  

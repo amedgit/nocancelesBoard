@@ -26,6 +26,8 @@ gem 'rails_admin'
 gem 'rails_admin-i18n'
 gem 'devise-i18n'
 gem 'rails-i18n'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 group :development, :test do
   gem 'byebug'
