@@ -12,7 +12,7 @@ module ApplicationHelper
            when 0..4   then 'menos de 5 segundos'
            when 5..9   then 'menos de 10 segundos'
            when 10..19 then 'menos de 20 segundos'
-           when 20..59 then 'menos de um minuto'
+           when 20..59 then 'menos de un minuto'
            else             '1 minuto'
         end
 
