@@ -20,6 +20,18 @@ class OciosController < ApplicationController
   end
 
   def show
+    set_meta_tags title: @ocio.title ,
+                  site: '¡No Canceles!' ,
+                  reverse: true ,
+                  description: @ocio.desc ,
+                  keywords: @ocio.title.split(" ") << @ocio.cat << "ocio" << @ocio.city << @ocio.dir ,
+                  twitter: {
+                    card: "summary",
+                    site: "@NoCanceles",
+                    title: @ocio.title,
+                    description: @ocio.desc,
+                    image: @ocio.pic.image.url
+                  }
   end
 
   def new

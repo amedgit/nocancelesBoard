@@ -20,6 +20,18 @@ class TransportsController < ApplicationController
   end
 
   def show
+    set_meta_tags title: @transport.title ,
+                  site: '¡No Canceles!' ,
+                  reverse: true ,
+                  description: @transport.desc ,
+                  keywords: @transport.title.split(" ") << @transport.cat << "transport" << @transport.from_city << @transport.to_city ,
+                  twitter: {
+                    card: "summary",
+                    site: "@NoCanceles",
+                    title: @transport.title,
+                    description: @transport.desc,
+                    image: @transport.pic.image.url
+                  }
   end
 
   def new
