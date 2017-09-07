@@ -28,6 +28,8 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'meta-tags'
+
 
 group :development, :test do
   gem 'byebug'
@@ -37,10 +39,12 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
   gem 'spring'
+
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'puma'
+  #gem 'puma'
+
 end

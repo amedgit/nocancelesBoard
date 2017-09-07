@@ -21,6 +21,18 @@ class AlojamientosController < ApplicationController
   end
 
   def show
+    set_meta_tags title: @alojamiento.title ,
+                  site: '¡No Canceles!' ,
+                  reverse: true ,
+                  description: @alojamiento.desc ,
+                  keywords: @alojamiento.title.split(" ") << @alojamiento.cat << "alojamiento" << @alojamiento.city ,
+                  twitter: {
+                    card: "summary",
+                    site: "@NoCanceles",
+                    title: @alojamiento.title,
+                    description: @alojamiento.desc,
+                    image: @alojamiento.pic.image.url
+                  }
   end
 
   def new
