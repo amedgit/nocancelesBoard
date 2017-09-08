@@ -31,6 +31,13 @@ class OciosController < ApplicationController
                     title: @ocio.title,
                     description: @ocio.desc,
                     image: @ocio.pic.image.url
+                  },
+                  og: {
+                    title: @ocio.title,
+                    description:  @ocio.desc,
+                    type: "website",
+                    url: ocio_url(@ocio),
+                    image: @ocio.pic.image.url
                   }
   end
 

@@ -31,6 +31,13 @@ class TransportsController < ApplicationController
                     title: @transport.title,
                     description: @transport.desc,
                     image: @transport.pic.image.url
+                  },
+                  og: {
+                    title: @transport.title,
+                    description:  @transport.desc,
+                    type: "website",
+                    url: transport_url(@transport),
+                    image: @transport.pic.image.url
                   }
   end
 
