@@ -32,7 +32,15 @@ class AlojamientosController < ApplicationController
                     title: @alojamiento.title,
                     description: @alojamiento.desc,
                     image: @alojamiento.pic.image.url
+                  },
+                  og: {
+                    title: @alojamiento.title,
+                    description:  @alojamiento.desc,
+                    type: "website",
+                    url: alojamiento_url(@alojamiento),
+                    image: @alojamiento.pic.image.url
                   }
+
   end
 
   def new
