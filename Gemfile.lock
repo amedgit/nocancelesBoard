@@ -128,6 +128,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.21.0)
+    puma (3.10.0)
     rack (1.6.8)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
@@ -258,6 +259,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   paperclip (~> 4.3, >= 4.3.5)
   pg
+  puma (~> 3.4)
   rails (= 4.2.8.rc1)
   rails-i18n
   rails_12factor

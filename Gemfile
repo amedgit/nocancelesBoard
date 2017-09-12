@@ -29,6 +29,7 @@ gem 'rails-i18n'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'meta-tags'
+gem 'puma', '~> 3.4'
 
 
 group :development, :test do
@@ -45,6 +46,6 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  #gem 'puma'
+
 
 end
